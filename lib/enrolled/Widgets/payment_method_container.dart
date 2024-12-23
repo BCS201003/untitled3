@@ -5,10 +5,10 @@ class PaymentMethodContainer extends StatefulWidget {
   const PaymentMethodContainer({super.key});
 
   @override
-  _PaymentMethodContainerState createState() => _PaymentMethodContainerState();
+  PaymentMethodContainerState createState() => PaymentMethodContainerState();
 }
 
-class _PaymentMethodContainerState extends State<PaymentMethodContainer> {
+class PaymentMethodContainerState extends State<PaymentMethodContainer> {
   String? _selectedMethod;
 
   @override

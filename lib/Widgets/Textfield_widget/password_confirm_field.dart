@@ -15,10 +15,10 @@ class PasswordConfirmField extends StatefulWidget {
   });
 
   @override
-  _PasswordConfirmFieldState createState() => _PasswordConfirmFieldState();
+  PasswordConfirmFieldState createState() => PasswordConfirmFieldState();
 }
 
-class _PasswordConfirmFieldState extends State<PasswordConfirmField> {
+class PasswordConfirmFieldState extends State<PasswordConfirmField> {
   bool _obscureText = true;
   bool _showIcon = false;
   String? _errorText;

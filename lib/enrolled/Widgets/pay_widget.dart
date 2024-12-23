@@ -5,10 +5,10 @@ class PayWidget extends StatefulWidget {
   const PayWidget({super.key});
 
   @override
-  _PayWidgetState createState() => _PayWidgetState();
+  PayWidgetState createState() => PayWidgetState();
 }
 
-class _PayWidgetState extends State<PayWidget> {
+class PayWidgetState extends State<PayWidget> {
   bool _isChecked = false;
 
   @override

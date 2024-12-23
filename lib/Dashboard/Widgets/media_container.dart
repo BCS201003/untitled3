@@ -99,7 +99,7 @@ class MediaContainer extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => EnrollScreen()),
+                            MaterialPageRoute(builder: (context) => const EnrollScreen()),
                           );
                         },
                         style: ElevatedButton.styleFrom(

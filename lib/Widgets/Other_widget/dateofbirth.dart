@@ -7,10 +7,10 @@ class Dateofbirth extends StatefulWidget {
   const Dateofbirth({super.key});
 
   @override
-  _DateofbirthState createState() => _DateofbirthState();
+  DateofbirthState createState() => DateofbirthState();
 }
 
-class _DateofbirthState extends State<Dateofbirth> {
+class DateofbirthState extends State<Dateofbirth> {
   Future<void> _selectDate(BuildContext context) async {
     // Access ProfileController instance
     final profileController = Get.find<ProfileController>();
@@ -26,7 +26,7 @@ class _DateofbirthState extends State<Dateofbirth> {
       // Update the controller and UI state
       profileController.selectedDate = picked;
       profileController.changeBirth(DateFormat('yyyy-MM-dd').format(picked));
-      profileController.BirthController.text =
+      profileController.birthController.text =
           DateFormat('yyyy-MM-dd').format(picked); // Sync with the text field
 
       // Notify listeners of state change

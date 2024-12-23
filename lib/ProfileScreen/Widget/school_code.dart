@@ -37,7 +37,7 @@ class SchoolCodeInput extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         TextField(
-          controller: controller.CodeController,
+          controller: controller.codeController,
           onChanged: (String value) {
             controller.changeCode(value);
           },

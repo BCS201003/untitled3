@@ -19,9 +19,9 @@ class CreateProfileScreen extends StatefulWidget {
   const CreateProfileScreen({super.key});
 
   @override
-  _CreateProfileScreenState createState() => _CreateProfileScreenState();
+  CreateProfileScreenState createState() => CreateProfileScreenState();
 }
-class _CreateProfileScreenState extends State<CreateProfileScreen> {
+class CreateProfileScreenState extends State<CreateProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

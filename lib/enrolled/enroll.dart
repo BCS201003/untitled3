@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/Widgets/Appbar/custom_appbar.dart';
-import 'package:untitled/enrolled/Widgets/BillingAddressContainer.dart';
-import 'package:untitled/enrolled/Widgets/BillingSummaryContainer.dart';
-import 'package:untitled/enrolled/Widgets/OrderReviewContainer.dart';
-import 'package:untitled/enrolled/Widgets/PaymentMethodContainer.dart';
+import 'package:untitled/enrolled/Widgets/billing_address_container.dart';
+import 'package:untitled/enrolled/Widgets/billing_summary_container.dart';
+import 'package:untitled/enrolled/Widgets/order_review_container.dart';
+import 'package:untitled/enrolled/Widgets/payment_method_container.dart';
 import 'package:untitled/enrolled/Widgets/pay_widget.dart';
 
 class EnrollScreen extends StatelessWidget {

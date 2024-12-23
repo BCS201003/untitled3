@@ -4,10 +4,10 @@ class TeacherListContainer extends StatefulWidget {
   const TeacherListContainer({super.key});
 
   @override
-  _TeacherListContainerState createState() => _TeacherListContainerState();
+  TeacherListContainerState createState() => TeacherListContainerState();
 }
 
-class _TeacherListContainerState extends State<TeacherListContainer> {
+class TeacherListContainerState extends State<TeacherListContainer> {
   final List<Map<String, dynamic>> _teachers = [
     {'name': 'Fyez Irfan', 'imagePath': 'assets/teacher1.png', 'progress': 0.25, 'color': Colors.red, 'percentage': '25%'},
     {'name': 'Muhammad Ali Khan', 'imagePath': 'assets/teacher2.png', 'progress': 0.50, 'color': Colors.yellow, 'percentage': '50%'},
@@ -45,7 +45,7 @@ class _TeacherListContainerState extends State<TeacherListContainer> {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(15),
         child: ExpansionTile(
-          tilePadding: EdgeInsets.symmetric(horizontal: 16.0),
+          tilePadding: const EdgeInsets.symmetric(horizontal: 16.0),
           title: const Text(
             'Teacher List',
             style: TextStyle(
@@ -79,7 +79,7 @@ class _TeacherListContainerState extends State<TeacherListContainer> {
                 teacher['color'],
                 teacher['percentage'],
               );
-            }).toList(),
+            }),
           ],
         ),
       ),
@@ -127,7 +127,7 @@ class _TeacherListContainerState extends State<TeacherListContainer> {
                 ),
               ),
               const SizedBox(height: 4),
-              Container(
+              SizedBox(
                 width: 50,
                 height: 4,
                 child: LinearProgressIndicator(

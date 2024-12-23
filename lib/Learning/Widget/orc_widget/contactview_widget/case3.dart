@@ -53,7 +53,7 @@ class Case3Widget extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   SizedBox(
                     width: 71,
                     height: 19,

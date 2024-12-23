@@ -10,11 +10,11 @@ class ProfileController extends GetxController {
   String selectedState = 'Punjab';
   String selectedCity = 'Islamabad';
 
-  final TextEditingController NameController = TextEditingController();
-  final TextEditingController CodeController = TextEditingController();
-  final TextEditingController AddressController = TextEditingController();
-  final TextEditingController BirthController = TextEditingController();
-  final TextEditingController CourseController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController codeController = TextEditingController();
+  final TextEditingController addressController = TextEditingController();
+  final TextEditingController birthController = TextEditingController();
+  final TextEditingController courseController = TextEditingController();
 
   DateTime? selectedDate;
   final List<String> namesList = [];
@@ -44,15 +44,15 @@ class ProfileController extends GetxController {
   }
 
   void updateSaveButtonState() {
-    isSaveButtonEnabled = NameController.text.isNotEmpty &&
-        CodeController.text.isNotEmpty &&
-        AddressController.text.isNotEmpty;
+    isSaveButtonEnabled = nameController.text.isNotEmpty &&
+        codeController.text.isNotEmpty &&
+        addressController.text.isNotEmpty;
   }
 
   void changeName(String value) {
     if (namesList.length < 5 && value.isNotEmpty) {
       namesList.add(value);
-      NameController.clear();
+      nameController.clear();
       update();
     } else if (namesList.length >= 5) {
       namesList.removeAt(0);
@@ -63,12 +63,10 @@ class ProfileController extends GetxController {
 
   List<Map<String, String>> listSubscriberData = [];
 
-  void increment(
-      String fullName,
-      ) {
+  void increment(String fullName) {
     listSubscriberData.add(
       {
-        'name': NameController.text,
+        'name': nameController.text,
         'gender': selectedGender,
         'grades': selectedStudentGrade,
         'state': selectedState,
@@ -78,17 +76,17 @@ class ProfileController extends GetxController {
   }
 
   void changeBirth(String value) {
-    BirthController.text = value;
+    birthController.text = value;
     update();
   }
 
   void changeCode(String value) {
-    CodeController.text = value;
+    codeController.text = value;
     update();
   }
 
   void changeAddress(String value) {
-    AddressController.text = value;
+    addressController.text = value;
     update();
   }
 
@@ -140,4 +138,3 @@ class ProfileController extends GetxController {
     return isExpanded;
   }
 }
-

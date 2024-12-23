@@ -24,10 +24,10 @@ class ExpandableContainer extends StatefulWidget {
   });
 
   @override
-  _ExpandableContainerState createState() => _ExpandableContainerState();
+  ExpandableContainerState createState() => ExpandableContainerState();
 }
 
-class _ExpandableContainerState extends State<ExpandableContainer> {
+class ExpandableContainerState extends State<ExpandableContainer> {
   bool isExpanded = false;
 
   @override

@@ -4,10 +4,10 @@ class PTSWidget extends StatefulWidget {
   const PTSWidget({super.key});
 
   @override
-  _PTSWidgetState createState() => _PTSWidgetState();
+  PTSWidgetState createState() => PTSWidgetState();
 }
 
-class _PTSWidgetState extends State<PTSWidget> {
+class PTSWidgetState extends State<PTSWidget> {
   String _selectedRole = 'Parent';
 
   @override

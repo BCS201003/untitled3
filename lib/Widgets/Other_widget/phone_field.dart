@@ -10,10 +10,10 @@ class CustomPhoneField extends StatefulWidget {
   const CustomPhoneField({super.key, required this.controller, required this.onPhoneFieldChange});
 
   @override
-  _CustomPhoneFieldState createState() => _CustomPhoneFieldState();
+  CustomPhoneFieldState createState() => CustomPhoneFieldState();
 }
 
-class _CustomPhoneFieldState extends State<CustomPhoneField> {
+class CustomPhoneFieldState extends State<CustomPhoneField> {
   final FocusNode _focusNode = FocusNode();
   String? _errorText;
 

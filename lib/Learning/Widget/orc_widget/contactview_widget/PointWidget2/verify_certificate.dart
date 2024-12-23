@@ -59,7 +59,7 @@ class VerifyCertificateWidget extends StatelessWidget {
                       decoration: InputDecoration(
                         hintText: 'Credential ID',
                         border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.grey),
+                          borderSide: const BorderSide(color: Colors.grey),
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         contentPadding: const EdgeInsets.symmetric(

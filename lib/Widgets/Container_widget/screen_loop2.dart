@@ -20,7 +20,7 @@ class _AddStudentLoop2State extends State<AddStudentLoop2> {
           onPressed: widget.profileController.isSaveButtonEnabled
               ? () {
                   widget.profileController
-                      .increment(widget.profileController.NameController.text);
+                      .increment(widget.profileController.nameController.text);
                 Navigator.pop(context);
                 }
               : null,

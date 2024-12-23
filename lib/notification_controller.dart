@@ -14,7 +14,7 @@ class NotificationController extends GetxController {
     await flutterLocalNotificationsPlugin.initialize(initializationSettings);
   }
 
-  Future<void> _showNotification() async {
+  Future<void> showNotification() async {
     const notificationDetails = NotificationDetails(
       android: AndroidNotificationDetails(
         'hello_channel',

@@ -53,7 +53,7 @@ class _MyCoursesScreenState extends State<MyCoursesScreen> {
               child: const Text('Add Course'),
             ),
             const SizedBox(height: 20),
-            Expanded(
+            const Expanded(
               child: SingleChildScrollView(
                 child: CourseListWidget(),
               ),

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart'; //
 import 'package:flutter/material.dart';
 import 'package:untitled/Learning/Widget/orc_widget/contactview.dart';
 import 'package:untitled/Learning/Widget/orc_widget/customtab.dart';
@@ -6,22 +7,26 @@ class ORC extends StatefulWidget {
   const ORC({super.key});
 
   @override
-  _ORCState createState() => _ORCState();
+  ORCState createState() => ORCState();
 }
 
-class _ORCState extends State<ORC> {
+class ORCState extends State<ORC> {
   int _selectedIndex = 1;
 
   void _updateSelectedIndex(int index) {
     setState(() {
       _selectedIndex = index;
     });
-    print('$_selectedIndex');
+    if (kDebugMode) {
+      print('$_selectedIndex');
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    print('$_selectedIndex');
+    if (kDebugMode) {
+      print('$_selectedIndex');
+    }
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(

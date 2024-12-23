@@ -6,10 +6,10 @@ class Question1Widget extends StatefulWidget {
   });
 
   @override
-  _Question1WidgetState createState() => _Question1WidgetState();
+  Question1WidgetState createState() => Question1WidgetState();
 }
 
-class _Question1WidgetState extends State<Question1Widget> {
+class Question1WidgetState extends State<Question1Widget> {
   bool _isExpanded = false;
 
   @override

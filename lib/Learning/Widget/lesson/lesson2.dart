@@ -8,10 +8,10 @@ class LessonWidget2 extends StatefulWidget {
   });
 
   @override
-  _LessonWidget2State createState() => _LessonWidget2State();
+  LessonWidget2State createState() => LessonWidget2State();
 }
 
-class _LessonWidget2State extends State<LessonWidget2> {
+class LessonWidget2State extends State<LessonWidget2> {
   bool _isExpanded = false;
 
   @override

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled/HomeScreen/Controller/profile_controller.dart';
 class CourseListWidget extends StatelessWidget {
+  const CourseListWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ProfileController>(

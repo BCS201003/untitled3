@@ -5,10 +5,10 @@ class MCQsResultWidget extends StatefulWidget {
   const MCQsResultWidget({super.key});
 
   @override
-  _MCQsResultWidgetState createState() => _MCQsResultWidgetState();
+  MCQsResultWidgetState createState() => MCQsResultWidgetState();
 }
 
-class _MCQsResultWidgetState extends State<MCQsResultWidget> {
+class MCQsResultWidgetState extends State<MCQsResultWidget> {
   bool _showFeedback = false; // Track whether feedback is visible
 
   @override
@@ -91,7 +91,7 @@ class _MCQsResultWidgetState extends State<MCQsResultWidget> {
               _showFeedback = !_showFeedback; // Toggle the feedback widget
             });
           },
-          child: Text("Mark"),
+          child: const Text("Mark"),
         ),
         // Feedback widget
         Visibility(

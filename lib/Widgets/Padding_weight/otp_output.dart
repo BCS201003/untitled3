@@ -6,10 +6,10 @@ class OtpInputFields extends StatefulWidget {
   const OtpInputFields({super.key, required this.onOtpChanged});
 
   @override
-  _OtpInputFieldsState createState() => _OtpInputFieldsState();
+  OtpInputFieldsState createState() => OtpInputFieldsState();
 }
 
-class _OtpInputFieldsState extends State<OtpInputFields> {
+class OtpInputFieldsState extends State<OtpInputFields> {
   final List<TextEditingController> _controllers = List.generate(4, (index) => TextEditingController());
   final List<FocusNode> _focusNodes = List.generate(4, (index) => FocusNode());
 

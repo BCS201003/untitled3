@@ -7,10 +7,10 @@ class SchoolList extends StatefulWidget {
   const SchoolList({super.key, required this.controller});
 
   @override
-  _SchoolListState createState() => _SchoolListState();
+  SchoolListState createState() => SchoolListState();
 }
 
-class _SchoolListState extends State<SchoolList> {
+class SchoolListState extends State<SchoolList> {
   late String selectedSchool;
 
   @override

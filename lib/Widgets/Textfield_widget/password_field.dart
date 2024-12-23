@@ -11,10 +11,10 @@ class PasswordField extends StatefulWidget {
   });
 
   @override
-  _PasswordFieldState createState() => _PasswordFieldState();
+  PasswordFieldState createState() => PasswordFieldState();
 }
 
-class _PasswordFieldState extends State<PasswordField> {
+class PasswordFieldState extends State<PasswordField> {
   bool _obscureText = true;
   bool _showIcon = false;
   String? _errorText;

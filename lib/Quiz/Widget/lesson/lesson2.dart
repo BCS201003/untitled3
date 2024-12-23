@@ -6,9 +6,9 @@ class Question2Widget extends StatefulWidget {
   });
 
   @override
-  _Question2WidgetState createState() => _Question2WidgetState();
+  Question2WidgetState createState() => Question2WidgetState();
 }
-class _Question2WidgetState extends State<Question2Widget> {
+class Question2WidgetState extends State<Question2Widget> {
   bool _isExpanded = false;
   @override
   Widget build(BuildContext context) {

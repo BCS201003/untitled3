@@ -40,7 +40,7 @@ class FullNameField extends StatelessWidget {
         ),
         const SizedBox(height: 4),
         TextField(
-          controller: controller.NameController,
+          controller: controller.nameController,
           onChanged: (value) {
             controller.changeName(value);
           },

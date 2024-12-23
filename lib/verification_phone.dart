@@ -7,10 +7,10 @@ class PhoneVerification extends StatefulWidget {
   const PhoneVerification({super.key});
 
   @override
-  _PhoneVerificationState createState() => _PhoneVerificationState();
+  PhoneVerificationState createState() => PhoneVerificationState();
 }
 
-class _PhoneVerificationState extends State<PhoneVerification> {
+class PhoneVerificationState extends State<PhoneVerification> {
   final TextEditingController _phoneController = TextEditingController();
   final bool _isButtonActive = true;
 

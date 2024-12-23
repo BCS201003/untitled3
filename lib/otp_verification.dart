@@ -10,10 +10,10 @@ class OtpVerification extends StatefulWidget {
   const OtpVerification({super.key});
 
   @override
-  _OtpVerificationState createState() => _OtpVerificationState();
+  OtpVerificationState createState() => OtpVerificationState();
 }
 
-class _OtpVerificationState extends State<OtpVerification> {
+class OtpVerificationState extends State<OtpVerification> {
   bool _isOtpComplete = false;
   String _timerText = '1:30';
   late Timer _timer;

@@ -4,10 +4,10 @@ class StudentListContainer extends StatefulWidget {
   const StudentListContainer({super.key});
 
   @override
-  _StudentListContainerState createState() => _StudentListContainerState();
+  StudentListContainerState createState() => StudentListContainerState();
 }
 
-class _StudentListContainerState extends State<StudentListContainer> {
+class StudentListContainerState extends State<StudentListContainer> {
   final List<Map<String, dynamic>> _students = [
     {'name': 'Fyez Irfan', 'imagePath': 'assets/teacher1.png', 'progress': 0.25, 'color': Colors.red, 'percentage': '25%'},
     {'name': 'Muhammad Ali Khan', 'imagePath': 'assets/teacher2.png', 'progress': 0.50, 'color': Colors.yellow, 'percentage': '50%'},
@@ -79,7 +79,7 @@ class _StudentListContainerState extends State<StudentListContainer> {
                 student['color'],
                 student['percentage'],
               );
-            }).toList(),
+            }),
           ],
         ),
       ),
@@ -127,7 +127,7 @@ class _StudentListContainerState extends State<StudentListContainer> {
                 ),
               ),
               const SizedBox(height: 4),
-              Container(
+              SizedBox(
                 width: 50,
                 height: 4,
                 child: LinearProgressIndicator(
