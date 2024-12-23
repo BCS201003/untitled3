@@ -1,13 +1,9 @@
 // main.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:untitled/File/AddScreen/Learning/Widget/courceprogress.dart';
-import 'package:untitled/File/AddScreen/Learning/Widget/video.dart';
-import 'package:untitled/File/AddScreen/Learning/learning_screen.dart';
-import 'package:untitled/File/AddScreen/Mycources/Mycources.dart';
-import 'package:untitled/File/AddScreen/Quiz/quiz.dart';
+import 'package:untitled/Learning/Widget/courceprogress.dart';
 import 'package:untitled/notification_controller.dart';
-import 'package:untitled/profile_controller.dart';
+import 'package:untitled/HomeScreen/Controller/profile_controller.dart';
 import 'package:untitled/test.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

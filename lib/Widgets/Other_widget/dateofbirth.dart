@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart'; // For date formatting
-import 'package:untitled/profile_controller.dart';
+import 'package:untitled/HomeScreen/Controller/profile_controller.dart';
 
 class Dateofbirth extends StatefulWidget {
   const Dateofbirth({super.key});

@@ -8,7 +8,7 @@ class Testchild extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: ConstrainedBox(
-        constraints: BoxConstraints(
+        constraints: const BoxConstraints(
           maxHeight: 200,
           maxWidth: 300,
         ),

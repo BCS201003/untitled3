@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/File/AddScreen/add_screen.dart';
+import 'package:untitled/ProfileScreen/Models/createprofilescreen.dart';
 import 'package:untitled/Widgets/Container_widget/student_mini_profile.dart';
 import 'package:get/get.dart';
-import 'package:untitled/profile_controller.dart';
+import 'package:untitled/HomeScreen/Controller/profile_controller.dart';
 
 class AddStudentLoop extends StatefulWidget {
   const AddStudentLoop({super.key});
@@ -90,7 +90,7 @@ class _AddStudentLoopState extends State<AddStudentLoop> {
                   child: const Text("+  Add Student"),
                 ),
               )
-            : Center(
+            : const Center(
          )
       ],
     );
