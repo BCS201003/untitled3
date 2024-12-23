@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/Widgets/Appbar/custom_appbar.dart';
-import 'package:untitled/enrolled/Containers/BillingAddressContainer.dart';
-import 'package:untitled/enrolled/Containers/BillingSummaryContainer.dart';
-import 'package:untitled/enrolled/Containers/OrderReviewContainer.dart';
-import 'package:untitled/enrolled/Containers/PaymentMethodContainer.dart';
-import 'package:untitled/enrolled/Containers/pay_widget.dart';
+import 'package:untitled/enrolled/Widgets/BillingAddressContainer.dart';
+import 'package:untitled/enrolled/Widgets/BillingSummaryContainer.dart';
+import 'package:untitled/enrolled/Widgets/OrderReviewContainer.dart';
+import 'package:untitled/enrolled/Widgets/PaymentMethodContainer.dart';
+import 'package:untitled/enrolled/Widgets/pay_widget.dart';
 
 class EnrollScreen extends StatelessWidget {
   const EnrollScreen({super.key});

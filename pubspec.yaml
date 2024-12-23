@@ -44,7 +44,6 @@ flutter:
     - assets/visa.png
     - assets/MaskGroupFile.png
     - assets/background.png
-    - assets/video.mp4
     - assets/certificate.png
   fonts:
       - family: Jost

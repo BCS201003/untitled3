@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/Quiz/Quiz_widget/lesson/lesson.dart';
-import 'package:untitled/Quiz/Quiz_widget/lesson/lesson2.dart';
-import 'package:untitled/Quiz/Quiz_widget/msqsresultwidget.dart';
+import 'package:untitled/Quiz/Widget/lesson/lesson.dart';
+import 'package:untitled/Quiz/Widget/lesson/lesson2.dart';
+import 'package:untitled/Quiz/Widget/msqsresultwidget.dart';
 import 'package:untitled/Widgets/Appbar/custom_appbar.dart';
 
 class QuizScreen extends StatelessWidget {

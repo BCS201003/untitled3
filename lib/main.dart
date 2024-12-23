@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:untitled/Learning/Widget/courceprogress.dart';
 import 'package:untitled/notification_controller.dart';
 import 'package:untitled/HomeScreen/Controller/profile_controller.dart';
-import 'package:untitled/test.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
