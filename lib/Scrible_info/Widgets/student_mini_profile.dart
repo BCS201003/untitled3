@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:untitled/ProfileScreen/Controller/profile_controller.dart';
 
 class StudentMiniProfile extends StatelessWidget {
-  const StudentMiniProfile({super.key,required this.fullName,required this.grades});
+  const StudentMiniProfile({super.key, required this.fullName, required this.grades});
 
   final String fullName;
   final String grades;
@@ -11,13 +11,18 @@ class StudentMiniProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+    final padding = screenWidth * 0.04;
+    final iconSize = screenWidth * 0.18;
+    final textFontSize = screenWidth * 0.045;
+
     final profileController = Get.find<ProfileController>();
 
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Container(
-        width: 353,
-        padding: const EdgeInsets.all(8.0),
+        width: screenWidth * 0.85,
+        padding: EdgeInsets.all(padding),
         decoration: BoxDecoration(
           color: const Color(0xFFEFEFEF),
           borderRadius: BorderRadius.circular(8.0),
@@ -25,27 +30,26 @@ class StudentMiniProfile extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const Icon(
+            // Icon size adjusted based on screen width
+            Icon(
               Icons.account_circle,
-              size: 69,
-              color: Color(0xFF2A4B6B),
+              size: iconSize,
+              color: const Color(0xFF2A4B6B),
             ),
-            const SizedBox(width: 10),
+            SizedBox(width: screenWidth * 0.03), // Adjusted spacing
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(4.0),
+                padding: EdgeInsets.all(padding),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      fullName.isEmpty
-                          ? 'Name not available'
-                          : fullName,
-                      style: const TextStyle(
-                        color: Color(0xFF2A4B6B),
+                      fullName.isEmpty ? 'Name not available' : fullName,
+                      style: TextStyle(
+                        color: const Color(0xFF2A4B6B),
                         fontFamily: 'Jost',
-                        fontSize: 16,
+                        fontSize: textFontSize,
                         fontWeight: FontWeight.w400,
                         height: 1.5,
                       ),
@@ -53,22 +57,22 @@ class StudentMiniProfile extends StatelessWidget {
                       maxLines: 1,
                       textAlign: TextAlign.center,
                     ),
-                    const SizedBox(height: 5),
+                    SizedBox(height: screenHeight * 0.015),
                     Divider(
                       color: Colors.black,
                       thickness: 1,
                       indent: screenWidth * 0.05,
                       endIndent: screenWidth * 0.05,
                     ),
-                    const SizedBox(height: 5),
+                    SizedBox(height: screenHeight * 0.015),
                     Text(
                       profileController.selectedStudentGrade.isEmpty
                           ? 'Grade not available'
                           : grades,
-                      style: const TextStyle(
-                        color: Color(0xFF2A4B6B),
+                      style: TextStyle(
+                        color: const Color(0xFF2A4B6B),
                         fontFamily: 'Jost',
-                        fontSize: 16,
+                        fontSize: textFontSize,
                         fontWeight: FontWeight.w400,
                         height: 1.5,
                       ),
