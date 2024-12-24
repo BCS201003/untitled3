@@ -10,10 +10,10 @@ import 'package:untitled/ProfileScreen/Widget/school_grade.dart';
 import 'package:untitled/ProfileScreen/Widget/school_list.dart';
 import 'package:untitled/ProfileScreen/Widget/school_type.dart';
 import 'package:untitled/ProfileScreen/Widget/state.dart';
-import 'package:untitled/Widgets/Container_widget/screen_loop2.dart';
-import 'package:untitled/Widgets/Other_widget/dateofbirth.dart';
+import 'package:untitled/Scrible_info/Widgets/screen_loop2.dart';
+import 'package:untitled/ProfileScreen/Widget/dateofbirth.dart';
 import 'package:untitled/Widgets/Other_widget/logout.dart';
-import 'package:untitled/HomeScreen/Controller/profile_controller.dart';
+import 'package:untitled/ProfileScreen/Controller/profile_controller.dart';
 
 class CreateProfileScreen extends StatefulWidget {
   const CreateProfileScreen({super.key});
@@ -77,10 +77,13 @@ class CreateProfileScreenState extends State<CreateProfileScreen> {
                       ),
                       const SizedBox(height: 20),
                       FullNameField(controller: controller),
+                      ///////////////////////////////////////////
                       const SizedBox(height: 20),
                       GenderSelector(controller: controller),
+                      ///////////////////////////////////////////
                       const Dateofbirth(),
                       const SizedBox(height: 20),
+                      ///////////////////////////////////////////
                       SchoolTypeSelector(controller: controller),
                       const SizedBox(height: 15),
                       ///////////////////////////////////////////
@@ -104,6 +107,7 @@ class CreateProfileScreenState extends State<CreateProfileScreen> {
                       ////////////////////////////////////////////
                       AddressDropdown(controller: controller),
                       const SizedBox(height: 15),
+                      ////////////////////////////////////////////
                       AddStudentLoop2(profileController: controller),
                       const SizedBox(height: 4),
                     ],

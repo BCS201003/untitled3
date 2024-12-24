@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/HomeScreen/Controller/profile_controller.dart';
+import 'package:untitled/Mycources/Controller/mycource_controller.dart';
 
 class ExpandableContainer extends StatefulWidget {
   final double collapsedHeight;
@@ -9,7 +9,7 @@ class ExpandableContainer extends StatefulWidget {
   final IconData icon;
   final Widget expandedContent;
   final String media;
-  final ProfileController controller; // Add the controller as a parameter
+  final MyCourseController controller; // Use MyCourseController here
 
   const ExpandableContainer({
     super.key,
@@ -20,7 +20,7 @@ class ExpandableContainer extends StatefulWidget {
     required this.icon,
     required this.expandedContent,
     required this.media,
-    required this.controller, // Initialize the controller
+    required this.controller,
   });
 
   @override
@@ -57,8 +57,7 @@ class ExpandableContainerState extends State<ExpandableContainer> {
             ),
             onPressed: () {
               setState(() {
-                isExpanded = !isExpanded;
-                widget.controller.toggleExpand(); // Call toggleExpand method
+                isExpanded = widget.controller.toggleExpand();
               });
             },
           ),

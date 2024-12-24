@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:untitled/HomeScreen/Controller/profile_controller.dart';
+import 'package:untitled/ProfileScreen/Controller/profile_controller.dart';
 
 class GenderSelector extends StatelessWidget {
   final ProfileController controller;

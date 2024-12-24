@@ -3,11 +3,9 @@ import 'package:untitled/Dashboard/Widgets/wg.dart';
 import 'package:untitled/Dashboard/Widgets/wg1.dart';
 import 'package:untitled/Dashboard/Widgets/wg2.dart';
 import 'package:untitled/Widgets/Appbar/custom_appbar.dart';
-import 'package:untitled/HomeScreen/Controller/profile_controller.dart';
 
 class Dashboard extends StatelessWidget {
-  final ProfileController controller = ProfileController();
-  Dashboard({super.key});
+  const Dashboard({super.key});
 
   @override
   Widget build(BuildContext context) {

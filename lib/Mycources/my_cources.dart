@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:untitled/Mycources/Controller/mycource_controller.dart';
 import 'package:untitled/Mycources/Widgets/course_list_widget.dart';
 import 'package:untitled/Mycources/Widgets/my_course_dashboard.dart';
 import 'package:untitled/Widgets/Appbar/custom_appbar.dart';
-import 'package:untitled/HomeScreen/Controller/profile_controller.dart';
 
 class MyCoursesScreen extends StatefulWidget {
   const MyCoursesScreen({super.key});
@@ -42,7 +42,7 @@ class _MyCoursesScreenState extends State<MyCoursesScreen> {
               onPressed: () {
                 final courseName = _courseController.text.trim();
                 if (courseName.isNotEmpty) {
-                  Get.find<ProfileController>().addCourse(courseName);
+                  Get.find<MyCourseController>().addCourse(courseName);
                   _courseController.clear();
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(

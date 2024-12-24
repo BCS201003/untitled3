@@ -20,28 +20,8 @@ class ProfileController extends GetxController {
   final List<String> namesList = [];
   var incremental = 0;
   var showAddButton = true;
-  var errorMessage = ' ';
+  final errorMessage = ''.obs;
   var isSaveButtonEnabled = false;
-
-  final List<String> courses = [];
-  var isExpanded = false;
-
-  void addCourse(String courseName) {
-    if (courses.length < 10) {
-      courses.add(courseName);
-      update();
-    } else {
-      errorMessage = "Maximum number of courses reached!";
-      update();
-    }
-  }
-
-  void removeCourse(int index) {
-    if (index >= 0 && index < courses.length) {
-      courses.removeAt(index);
-      update();
-    }
-  }
 
   void updateSaveButtonState() {
     isSaveButtonEnabled = nameController.text.isNotEmpty &&
@@ -133,8 +113,4 @@ class ProfileController extends GetxController {
     }
   }
 
-  bool toggleExpand() {
-    isExpanded = !isExpanded;
-    return isExpanded;
-  }
 }

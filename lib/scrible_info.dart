@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/Widgets/Container_widget/screen_loop.dart';
+import 'package:untitled/Scrible_info/Widgets/screen_loop.dart';
 import 'package:untitled/Widgets/Other_widget/logout.dart';
 
 class SubscriberInfoScreen extends StatelessWidget {

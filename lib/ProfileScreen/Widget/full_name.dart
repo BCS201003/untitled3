@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/HomeScreen/Controller/profile_controller.dart';
+import 'package:get/get.dart';
+import 'package:untitled/ProfileScreen/Controller/profile_controller.dart';
 
 class FullNameField extends StatelessWidget {
   final ProfileController controller;
@@ -8,8 +9,6 @@ class FullNameField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isError = controller.errorMessage.isNotEmpty;
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -39,33 +38,56 @@ class FullNameField extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 4),
-        TextField(
-          controller: controller.nameController,
-          onChanged: (value) {
-            controller.changeName(value);
-          },
-          decoration: InputDecoration(
-            contentPadding: const EdgeInsets.all(12),
-            hintText: 'Enter full name',
-            border: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(10)),
-              borderSide: BorderSide(color: Colors.grey),
-            ),
-            enabledBorder: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(10)),
-              borderSide: BorderSide(color: Colors.grey),
-            ),
-            focusedBorder: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(10)),
-              borderSide: BorderSide(color: Colors.blue),
-            ),
-            errorBorder: OutlineInputBorder(
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
-              borderSide: BorderSide(
-                  color: isError ? Colors.red : Colors.grey),
-            ),
-          ),
-        ),
+        Obx(() {
+          // Listen to errorMessage updates
+          final isError = controller.errorMessage.isNotEmpty;
+
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TextField(
+                controller: controller.nameController,
+                onChanged: (value) {
+                  controller.changeName(value);
+                  controller.updateSaveButtonState();
+                },
+                decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.all(12),
+                  hintText: 'Enter full name',
+                  border: const OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    borderSide: BorderSide(color: Colors.grey),
+                  ),
+                  enabledBorder: const OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    borderSide: BorderSide(color: Colors.grey),
+                  ),
+                  focusedBorder: const OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    borderSide: BorderSide(color: Colors.blue),
+                  ),
+                  errorBorder: OutlineInputBorder(
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    borderSide: BorderSide(
+                      color: isError ? Colors.red : Colors.grey,
+                    ),
+                  ),
+                ),
+              ),
+              if (isError)
+                Padding(
+                  padding: const EdgeInsets.only(top: 4.0),
+                  child: Text(
+                    controller.errorMessage.value,
+                    style: const TextStyle(
+                      color: Colors.red,
+                      fontSize: 12,
+                    ),
+                  ),
+                ),
+            ],
+          );
+        }),
       ],
     );
   }

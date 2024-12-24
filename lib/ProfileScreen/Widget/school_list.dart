@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/HomeScreen/Controller/profile_controller.dart';
+import 'package:untitled/ProfileScreen/Controller/profile_controller.dart';
 
 class SchoolList extends StatefulWidget {
   final ProfileController controller;
