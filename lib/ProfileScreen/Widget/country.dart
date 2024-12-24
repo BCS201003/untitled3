@@ -53,16 +53,19 @@ class CountryDropdown extends StatelessWidget {
                 final profileModel = ProfileFieldModel(
                   fullName: controller.nameController.text,
                   dateOfBirth: controller.birthController.text,
-                  country: controller.selectedCountry,  // Use controller.selectedCountry for the country
-                  city: controller.selectedCity, // Use controller.selectedCity for the city
+                  country: controller.selectedCountry,
+                  city: controller.selectedCity,
+                  address: controller.addressController.text,
+                  gender: controller.selectedGender,
+                  schoolCode: controller.codeController.text,
+                  studentGrade: controller.selectedStudentGrade,
+                  selectedSchoolList: controller.selectedSchoolList,
+                  schoolType: controller.selectedSchoolType,
+                  state: controller.selectedState,
                 );
 
                 controller.saveProfile(profileModel);
-                // You can save or use the profileModel here
-                // For example, you can call a method to save the model:
-                // controller.saveProfile(profileModel);
-
-                controller.update(); // Notify listeners
+                controller.update();
               }
             },
             items: <String>['Pakistan', 'Other']

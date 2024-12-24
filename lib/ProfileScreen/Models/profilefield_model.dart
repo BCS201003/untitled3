@@ -1,47 +1,43 @@
 class ProfileFieldModel {
   String fullName;
-  String country;
   String dateOfBirth;
+  String country;
   String city;
+  String address;
+  String gender;
+  String schoolCode;
+  String studentGrade;
+  String selectedSchoolList;
+  String schoolType;
+  String state; // New field for state
 
   ProfileFieldModel({
     required this.fullName,
-    required this.country,
     required this.dateOfBirth,
+    required this.country,
     required this.city,
+    required this.address,
+    required this.gender,
+    required this.schoolCode,
+    required this.studentGrade,
+    required this.selectedSchoolList,
+    required this.schoolType,
+    required this.state, // Initialize the new field
   });
-
-  factory ProfileFieldModel.fromJson(Map<String, dynamic> json) {
-    return ProfileFieldModel(
-      fullName: json['fullName'] ?? '',
-      country: json['country'] ?? '',
-      dateOfBirth: json['dateOfBirth'] ?? '',
-      city: json['city'] ?? '', // Handle city
-    );
-  }
 
   Map<String, dynamic> toJson() {
     return {
       'fullName': fullName,
-      'country': country,
       'dateOfBirth': dateOfBirth,
-      'city': city, // Include city when converting to JSON
+      'country': country,
+      'city': city,
+      'address': address,
+      'gender': gender,
+      'schoolCode': schoolCode,
+      'studentGrade': studentGrade,
+      'selectedSchoolList': selectedSchoolList,
+      'schoolType': schoolType,
+      'state': state, // Add to JSON
     };
-  }
-
-  void updateFullName(String name) {
-    fullName = name;
-  }
-
-  void updateCountry(String country) {
-    this.country = country;
-  }
-
-  void updateDateOfBirth(String date) {
-    dateOfBirth = date;
-  }
-
-  void updateCity(String city) {
-    this.city = city; // Update city
   }
 }

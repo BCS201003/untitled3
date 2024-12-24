@@ -1,8 +1,8 @@
+// profile_controller.dart
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled/ProfileScreen/Models/profilefield_model.dart';
-
 class ProfileController extends GetxController {
   String selectedSchoolList = 'FGEI';
   String selectedGender = 'Male';
@@ -10,7 +10,7 @@ class ProfileController extends GetxController {
   String selectedStudentGrade = '8th(Part 1)';
   String selectedCountry = 'Pakistan';
   String selectedState = 'Punjab';
-  String selectedCity = 'Islamabad'; // New selectedCity variable
+  String selectedCity = 'Islamabad';
 
   final TextEditingController nameController = TextEditingController();
   final TextEditingController codeController = TextEditingController();
@@ -24,12 +24,25 @@ class ProfileController extends GetxController {
   var showAddButton = true;
 
   var errorMessage = ''.obs;
+
   var isSaveButtonEnabled = false.obs;
 
   void updateSaveButtonState() {
     isSaveButtonEnabled.value = nameController.text.isNotEmpty &&
         codeController.text.isNotEmpty &&
         addressController.text.isNotEmpty;
+  }
+
+    void increment(String fullName) {
+    listSubscriberData.add(
+      {
+        'name': nameController.text,
+        'gender': selectedGender,
+        'grades': selectedStudentGrade,
+        'state': selectedState,
+      },
+    );
+    update();
   }
 
   void changeName(String value) {
@@ -42,20 +55,6 @@ class ProfileController extends GetxController {
       namesList.add(value);
       update();
     }
-  }
-
-  List<Map<String, String>> listSubscriberData = [];
-
-  void increment(String fullName) {
-    listSubscriberData.add(
-      {
-        'name': nameController.text,
-        'gender': selectedGender,
-        'grades': selectedStudentGrade,
-        'state': selectedState,
-      },
-    );
-    update();
   }
 
   void changeBirth(String value) {
@@ -99,7 +98,7 @@ class ProfileController extends GetxController {
   }
 
   void changeCity(String newValue) {
-    selectedCity = newValue; // Update selected city
+    selectedCity = newValue;
     update();
   }
 
@@ -107,6 +106,8 @@ class ProfileController extends GetxController {
     selectedState = newValue;
     update();
   }
+  List<Map<String, String>> listSubscriberData = [];
+
 
   void handleAddStudentButton() {
     if (listSubscriberData.length >= 5) {

@@ -47,7 +47,8 @@ class CityDropdown extends StatelessWidget {
             value: controller.selectedCity,
             onChanged: (String? newValue) {
               if (newValue != null) {
-                controller.changeCity(newValue); // Update city selection
+                controller.changeCity(newValue);
+
               }
             },
             items: <String>['Islamabad', 'Rawalpindi']

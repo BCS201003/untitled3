@@ -49,6 +49,7 @@ class FullNameField extends StatelessWidget {
                   controller.changeName(value); // Update controller's name
                   controller.validateFullName(value); // Validate name
                 },
+
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.all(12),
                   hintText: 'Enter full name',

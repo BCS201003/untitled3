@@ -1,4 +1,4 @@
-//address.dart
+// address.dart
 import 'package:flutter/material.dart';
 import 'package:untitled/ProfileScreen/Controller/profile_controller.dart';
 
@@ -43,7 +43,7 @@ class AddressDropdown extends StatelessWidget {
         TextField(
           controller: controller.addressController,
           onChanged: (String v) {
-            controller.changeAddress(v);
+            controller.changeAddress(v); // Update the address in the controller
           },
           decoration: const InputDecoration(
             contentPadding: EdgeInsets.all(12),

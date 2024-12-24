@@ -1,3 +1,4 @@
+// school_list.dart
 import 'package:flutter/material.dart';
 import 'package:untitled/ProfileScreen/Controller/profile_controller.dart';
 
@@ -16,8 +17,7 @@ class SchoolListState extends State<SchoolList> {
   @override
   void initState() {
     super.initState();
-    // Initialize with the value from the controller
-    selectedSchool = widget.controller.selectedSchoolList;
+    selectedSchool = widget.controller.selectedSchoolList; // Initialize from the controller
   }
 
   @override

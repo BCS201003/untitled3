@@ -29,6 +29,13 @@ class DateOfBirthState extends State<DateOfBirth> {
         country: profileController.selectedCountry,
         dateOfBirth: formattedDate,
         city: profileController.selectedCity,
+        address: profileController.addressController.text,
+        gender: profileController.selectedGender,
+        schoolCode: profileController.codeController.text,
+        studentGrade: profileController.selectedStudentGrade,
+        selectedSchoolList: profileController.selectedSchoolList,
+        schoolType: profileController.selectedSchoolType,
+        state: profileController.selectedState,
       );
       profileController.saveProfile(profileModel);
       profileController.update();
