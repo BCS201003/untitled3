@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:untitled/HomeScreen/Controller/home_controller.dart';
 import 'package:untitled/Learning/Widget/courceprogress.dart';
 import 'package:untitled/Mycources/Controller/mycource_controller.dart';
+import 'package:untitled/ProfileScreen/Views/screens/create_profile/createprofilescreen.dart';
 import 'package:untitled/notification_controller.dart';
 import 'package:untitled/ProfileScreen/Controller/profile_controller.dart';
 void main() async {
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
       //home: TeacherDashboard(),
       //home:Learning(),
       //home: QuizScreen(),
-      home: CourseProgress()
+      home: CreateProfileScreen(),
       //home: Testchild(),
     );
   }
