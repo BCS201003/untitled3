@@ -1,8 +1,8 @@
-// profile_controller.dart
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled/ProfileScreen/Models/profilefield_model.dart';
+
 class ProfileController extends GetxController {
   String selectedSchoolList = 'FGEI';
   String selectedGender = 'Male';
@@ -23,17 +23,18 @@ class ProfileController extends GetxController {
   var incremental = 0;
   var showAddButton = true;
 
-  var errorMessage = ''.obs;
+  var errorMessage = '';
 
-  var isSaveButtonEnabled = false.obs;
+  bool isSaveButtonEnabled = false;
 
   void updateSaveButtonState() {
-    isSaveButtonEnabled.value = nameController.text.isNotEmpty &&
+    isSaveButtonEnabled = nameController.text.isNotEmpty &&
         codeController.text.isNotEmpty &&
         addressController.text.isNotEmpty;
+    update(); // Call update manually
   }
 
-    void increment(String fullName) {
+  void increment(String fullName) {
     listSubscriberData.add(
       {
         'name': nameController.text,
@@ -42,72 +43,72 @@ class ProfileController extends GetxController {
         'state': selectedState,
       },
     );
-    update();
+    update(); // Call update manually
   }
 
   void changeName(String value) {
     if (namesList.length < 5 && value.isNotEmpty) {
       namesList.add(value);
       nameController.clear();
-      update();
+      update(); // Call update manually
     } else if (namesList.length >= 5) {
       namesList.removeAt(0);
       namesList.add(value);
-      update();
+      update(); // Call update manually
     }
   }
 
   void changeBirth(String value) {
     birthController.text = value;
-    update();
+    update(); // Call update manually
   }
 
   void changeCode(String value) {
     codeController.text = value;
-    update();
+    update(); // Call update manually
   }
 
   void changeAddress(String value) {
     addressController.text = value;
-    update();
+    update(); // Call update manually
   }
 
   void changeSchoolList(String newValue) {
     selectedSchoolList = newValue;
-    update();
+    update(); // Call update manually
   }
 
   void changeSchoolType(String newValue) {
     selectedSchoolType = newValue;
-    update();
+    update(); // Call update manually
   }
 
   void changeGender(String newValue) {
     selectedGender = newValue;
-    update();
+    update(); // Call update manually
   }
 
   void changeStudentGrade(String newValue) {
     selectedStudentGrade = newValue;
-    update();
+    update(); // Call update manually
   }
 
   void changeCountry(String newValue) {
     selectedCountry = newValue;
-    update();
+    update(); // Call update manually
   }
 
   void changeCity(String newValue) {
     selectedCity = newValue;
-    update();
+    update(); // Call update manually
   }
 
   void changeState(String newValue) {
     selectedState = newValue;
-    update();
+    update(); // Call update manually
   }
-  List<Map<String, String>> listSubscriberData = [];
 
+  List<Map<String, String>> listSubscriberData = [];
 
   void handleAddStudentButton() {
     if (listSubscriberData.length >= 5) {
@@ -115,15 +116,16 @@ class ProfileController extends GetxController {
     } else {
       showAddButton = true;
     }
+    update(); // Call update manually
   }
 
   void validateFullName(String value) {
     if (value.isEmpty) {
-      errorMessage.value = 'Full name is required';
+      errorMessage = 'Full name is required';
     } else if (value.length < 3) {
-      errorMessage.value = 'Full name should be at least 3 characters';
+      errorMessage = 'Full name should be at least 3 characters';
     } else {
-      errorMessage.value = '';
+      errorMessage = '';
     }
     updateSaveButtonState();
   }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:untitled/ProfileScreen/Controller/profile_controller.dart';
 
 class FullNameField extends StatelessWidget {
@@ -38,9 +37,8 @@ class FullNameField extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 4),
-        Obx(() {
           // Listen to the error message from the controller
-          return Column(
+    Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TextField(
@@ -49,7 +47,6 @@ class FullNameField extends StatelessWidget {
                   controller.changeName(value); // Update controller's name
                   controller.validateFullName(value); // Validate name
                 },
-
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.all(12),
                   hintText: 'Enter full name',
@@ -68,19 +65,18 @@ class FullNameField extends StatelessWidget {
                   errorBorder: OutlineInputBorder(
                     borderRadius: const BorderRadius.all(Radius.circular(10)),
                     borderSide: BorderSide(
-                      color: controller.errorMessage.value.isNotEmpty
+                      color: controller.errorMessage.isNotEmpty
                           ? Colors.red
                           : Colors.grey,
                     ),
                   ),
                 ),
               ),
-              // Show error message if validation fails
-              if (controller.errorMessage.value.isNotEmpty)
+              if (controller.errorMessage.isNotEmpty)
                 Padding(
                   padding: const EdgeInsets.only(top: 4.0),
                   child: Text(
-                    controller.errorMessage.value,
+                    controller.errorMessage,
                     style: const TextStyle(
                       color: Colors.red,
                       fontSize: 12,
@@ -88,8 +84,7 @@ class FullNameField extends StatelessWidget {
                   ),
                 ),
             ],
-          );
-        }),
+        ),
       ],
     );
   }

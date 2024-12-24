@@ -1,37 +1,42 @@
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:untitled/Mycources/Controller/mycource_controller.dart';
 import 'package:untitled/ProfileScreen/Controller/profile_controller.dart';
 
 class MainController extends GetxController {
-  // Instances of individual controllers
   final myCourseController = MyCourseController();
   final profileController = ProfileController();
 
-  // A shared error message variable
   String errorMessage = '';
 
-  // To handle both controllers' error states
   void updateErrorMessage() {
+    // You can now safely update the error message outside the build process.
     if (myCourseController.errorMessage.isNotEmpty) {
-      errorMessage = myCourseController.errorMessage.value;
+      errorMessage = myCourseController.errorMessage;
     } else if (profileController.errorMessage.isNotEmpty) {
-      errorMessage = profileController.errorMessage.value;
+      errorMessage = profileController.errorMessage;
     } else {
       errorMessage = '';
     }
-    update(); // Notify listeners
+    // Make sure to call update() to notify listeners, if needed
+    update();  // This will notify listeners, and it's safe now.
   }
 
   @override
   void onInit() {
     super.onInit();
 
-    // Bind errorMessage updates to changes in the individual controllers
-    ever(myCourseController.errorMessage, (_) => updateErrorMessage());
-    ever(profileController.errorMessage, (_) => updateErrorMessage());
+    // Schedule updates after the current build is done using addPostFrameCallback
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      myCourseController.addListener(() {
+        updateErrorMessage();
+      });
+      profileController.addListener(() {
+        updateErrorMessage();
+      });
+    });
   }
 
-  // Shared logic example (if needed)
   void clearAllData() {
     myCourseController.courses.clear();
     profileController.namesList.clear();

@@ -9,7 +9,7 @@ class ProfileFieldModel {
   String studentGrade;
   String selectedSchoolList;
   String schoolType;
-  String state; // New field for state
+  String state;
 
   ProfileFieldModel({
     required this.fullName,
@@ -22,7 +22,7 @@ class ProfileFieldModel {
     required this.studentGrade,
     required this.selectedSchoolList,
     required this.schoolType,
-    required this.state, // Initialize the new field
+    required this.state,
   });
 
   Map<String, dynamic> toJson() {
@@ -37,7 +37,7 @@ class ProfileFieldModel {
       'studentGrade': studentGrade,
       'selectedSchoolList': selectedSchoolList,
       'schoolType': schoolType,
-      'state': state, // Add to JSON
+      'state': state,
     };
   }
 }

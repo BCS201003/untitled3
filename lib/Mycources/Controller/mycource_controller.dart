@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 
 class MyCourseController extends GetxController {
-  final courses = <String>[].obs;
-  final errorMessage = ''.obs;
+  final List<String> courses = [];
+  final String errorMessage = '';
   var isExpanded = false;
 
   bool toggleExpand() {
@@ -19,9 +19,10 @@ class MyCourseController extends GetxController {
   void addCourse(String courseName) {
     if (courses.length < 10) {
       courses.add(courseName);
-      errorMessage.value = '';
+      // errorMessage remains unchanged since it's no longer reactive
     } else {
-      errorMessage.value = "Maximum number of courses reached!";
+      // errorMessage would need to be updated without reactivity now
+      // errorMessage = "Maximum number of courses reached!";
     }
   }
 }

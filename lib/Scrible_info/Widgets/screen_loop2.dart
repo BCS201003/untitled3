@@ -12,21 +12,20 @@ class AddStudentLoop2 extends StatefulWidget {
 class AddStudentLoop2State extends State<AddStudentLoop2> {
   @override
   Widget build(BuildContext context) {
-    // Ensure that the save button state is updated before building the UI.
     widget.profileController.updateSaveButtonState();
 
     return Column(
       children: [
         ElevatedButton(
-          onPressed: widget.profileController.isSaveButtonEnabled.value // Accessing RxBool value using `.value`
+          onPressed: widget.profileController.isSaveButtonEnabled
               ? () {
             widget.profileController
                 .increment(widget.profileController.nameController.text);
             Navigator.pop(context);
           }
-              : null, // If the save button is disabled, `null` is passed to disable the button
+              : null,
           style: ElevatedButton.styleFrom(
-            backgroundColor: widget.profileController.isSaveButtonEnabled.value
+            backgroundColor: widget.profileController.isSaveButtonEnabled
                 ? const Color(0xFF042763)
                 : Colors.grey,
             minimumSize: const Size(double.infinity, 50),

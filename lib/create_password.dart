@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/Widgets/Textfield_widget/password_confirm_field.dart';
 import 'package:untitled/Widgets/Textfield_widget/password_field.dart';
-import 'package:untitled/scrible_info.dart';
+import 'package:untitled/Scrible_info/scrible_info.dart';
 
 
 void _navigateToSubscriberInfoScreen(BuildContext context) {

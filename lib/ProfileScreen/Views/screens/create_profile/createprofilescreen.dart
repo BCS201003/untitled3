@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:untitled/ProfileScreen/Widget/address.dart';
 import 'package:untitled/ProfileScreen/Widget/city.dart';
 import 'package:untitled/ProfileScreen/Widget/country.dart';
@@ -21,10 +20,19 @@ class CreateProfileScreen extends StatefulWidget {
   @override
   CreateProfileScreenState createState() => CreateProfileScreenState();
 }
+
 class CreateProfileScreenState extends State<CreateProfileScreen> {
+  final ProfileController controller = ProfileController(); // Initialize the controller
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         leading: Padding(
           padding: const EdgeInsets.all(7.0),
@@ -65,53 +73,37 @@ class CreateProfileScreenState extends State<CreateProfileScreen> {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(16.0),
-            child: GetBuilder<ProfileController>(
-                init:
-                    ProfileController(),
-                builder: (controller) {
-                  return Column(
-                    children: [
-                      const CircleAvatar(
-                        radius: 40,
-                        child: Icon(Icons.camera_alt),
-                      ),
-                      const SizedBox(height: 20),
-                      FullNameField(controller: controller),
-                      const SizedBox(height: 20),
-                      GenderSelector(controller: controller),
-                      ///////////////////////////////////////////
-                      const DateOfBirth(),
-                      const SizedBox(height: 20),
-                      ///////////////////////////////////////////
-                      SchoolTypeSelector(controller: controller),
-                      const SizedBox(height: 15),
-                      ///////////////////////////////////////////
-                      SchoolList(controller: controller),
-                      const SizedBox(height: 15),
-                      ///////////////////////////////////////////
-                      SchoolCodeInput(controller: controller),
-                      const SizedBox(height: 15),
-                      ////////////////////////////////////////////
-                      SchoolGradeDropdown(controller: controller),
-                      const SizedBox(height: 15),
-                      ////////////////////////////////////////////
-                      CountryDropdown(controller: controller),
-                      const SizedBox(height: 15),
-                      ////////////////////////////////////////////
-                      StateDropdown(controller: controller),
-                      const SizedBox(height: 15),
-                      ////////////////////////////////////////////
-                      CityDropdown(controller: controller),
-                      const SizedBox(height: 15),
-                      ////////////////////////////////////////////
-                      AddressDropdown(controller: controller),
-                      const SizedBox(height: 15),
-                      ////////////////////////////////////////////
-                      AddStudentLoop2(profileController: controller),
-                      const SizedBox(height: 4),
-                    ],
-                  );
-                }),
+            child: Column(
+              children: [
+                const CircleAvatar(
+                  radius: 40,
+                  child: Icon(Icons.camera_alt),
+                ),
+                const SizedBox(height: 20),
+                FullNameField(controller: controller),
+                const SizedBox(height: 20),
+                GenderSelector(controller: controller),
+                const DateOfBirth(),
+                SchoolTypeSelector(controller: controller),
+                const SizedBox(height: 15),
+                SchoolList(controller: controller),
+                const SizedBox(height: 15),
+                SchoolCodeInput(controller: controller),
+                const SizedBox(height: 15),
+                SchoolGradeDropdown(controller: controller),
+                const SizedBox(height: 15),
+                CountryDropdown(controller: controller),
+                const SizedBox(height: 15),
+                StateDropdown(controller: controller),
+                const SizedBox(height: 15),
+                CityDropdown(controller: controller),
+                const SizedBox(height: 15),
+                AddressDropdown(controller: controller),
+                const SizedBox(height: 15),
+                AddStudentLoop2(profileController: controller),
+                const SizedBox(height: 4),
+              ],
+            ),
           ),
         ),
       ),
