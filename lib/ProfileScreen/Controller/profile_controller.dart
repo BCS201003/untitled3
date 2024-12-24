@@ -1,5 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:untitled/ProfileScreen/Models/profilefield_model.dart';
 
 class ProfileController extends GetxController {
   String selectedSchoolList = 'FGEI';
@@ -8,7 +10,7 @@ class ProfileController extends GetxController {
   String selectedStudentGrade = '8th(Part 1)';
   String selectedCountry = 'Pakistan';
   String selectedState = 'Punjab';
-  String selectedCity = 'Islamabad';
+  String selectedCity = 'Islamabad'; // New selectedCity variable
 
   final TextEditingController nameController = TextEditingController();
   final TextEditingController codeController = TextEditingController();
@@ -20,11 +22,12 @@ class ProfileController extends GetxController {
   final List<String> namesList = [];
   var incremental = 0;
   var showAddButton = true;
-  final errorMessage = ''.obs;
-  var isSaveButtonEnabled = false;
+
+  var errorMessage = ''.obs;
+  var isSaveButtonEnabled = false.obs;
 
   void updateSaveButtonState() {
-    isSaveButtonEnabled = nameController.text.isNotEmpty &&
+    isSaveButtonEnabled.value = nameController.text.isNotEmpty &&
         codeController.text.isNotEmpty &&
         addressController.text.isNotEmpty;
   }
@@ -96,7 +99,7 @@ class ProfileController extends GetxController {
   }
 
   void changeCity(String newValue) {
-    selectedCity = newValue;
+    selectedCity = newValue; // Update selected city
     update();
   }
 
@@ -113,4 +116,29 @@ class ProfileController extends GetxController {
     }
   }
 
+  void validateFullName(String value) {
+    if (value.isEmpty) {
+      errorMessage.value = 'Full name is required';
+    } else if (value.length < 3) {
+      errorMessage.value = 'Full name should be at least 3 characters';
+    } else {
+      errorMessage.value = '';
+    }
+    updateSaveButtonState();
+  }
+
+  void saveProfile(ProfileFieldModel profileModel) {
+    try {
+      if (kDebugMode) {
+        print("Saving profile: ${profileModel.toJson()}");
+      }
+      if (kDebugMode) {
+        print('Profile saved successfully');
+      }
+    } catch (error) {
+      if (kDebugMode) {
+        print('Error saving profile: $error');
+      }
+    }
+  }
 }

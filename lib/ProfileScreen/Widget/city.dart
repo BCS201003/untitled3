@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/ProfileScreen/Controller/profile_controller.dart';
+
 class CityDropdown extends StatelessWidget {
   final ProfileController controller;
 
@@ -46,7 +47,7 @@ class CityDropdown extends StatelessWidget {
             value: controller.selectedCity,
             onChanged: (String? newValue) {
               if (newValue != null) {
-                controller.changeCity(newValue);
+                controller.changeCity(newValue); // Update city selection
               }
             },
             items: <String>['Islamabad', 'Rawalpindi']

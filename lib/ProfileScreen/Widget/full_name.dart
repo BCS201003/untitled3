@@ -39,17 +39,15 @@ class FullNameField extends StatelessWidget {
         ),
         const SizedBox(height: 4),
         Obx(() {
-          // Listen to errorMessage updates
-          final isError = controller.errorMessage.isNotEmpty;
-
+          // Listen to the error message from the controller
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TextField(
                 controller: controller.nameController,
                 onChanged: (value) {
-                  controller.changeName(value);
-                  controller.updateSaveButtonState();
+                  controller.changeName(value); // Update controller's name
+                  controller.validateFullName(value); // Validate name
                 },
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.all(12),
@@ -69,12 +67,15 @@ class FullNameField extends StatelessWidget {
                   errorBorder: OutlineInputBorder(
                     borderRadius: const BorderRadius.all(Radius.circular(10)),
                     borderSide: BorderSide(
-                      color: isError ? Colors.red : Colors.grey,
+                      color: controller.errorMessage.value.isNotEmpty
+                          ? Colors.red
+                          : Colors.grey,
                     ),
                   ),
                 ),
               ),
-              if (isError)
+              // Show error message if validation fails
+              if (controller.errorMessage.value.isNotEmpty)
                 Padding(
                   padding: const EdgeInsets.only(top: 4.0),
                   child: Text(

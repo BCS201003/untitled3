@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/ProfileScreen/Controller/profile_controller.dart';
+import 'package:untitled/ProfileScreen/Models/profilefield_model.dart'; // Import the model
 
 class CountryDropdown extends StatelessWidget {
   final ProfileController controller;
@@ -48,6 +49,20 @@ class CountryDropdown extends StatelessWidget {
             onChanged: (String? newValue) {
               if (newValue != null) {
                 controller.changeCountry(newValue); // Update controller's state
+                // Update the ProfileFieldModel when country changes
+                final profileModel = ProfileFieldModel(
+                  fullName: controller.nameController.text,
+                  dateOfBirth: controller.birthController.text,
+                  country: controller.selectedCountry,  // Use controller.selectedCountry for the country
+                  city: controller.selectedCity, // Use controller.selectedCity for the city
+                );
+
+                controller.saveProfile(profileModel);
+                // You can save or use the profileModel here
+                // For example, you can call a method to save the model:
+                // controller.saveProfile(profileModel);
+
+                controller.update(); // Notify listeners
               }
             },
             items: <String>['Pakistan', 'Other']

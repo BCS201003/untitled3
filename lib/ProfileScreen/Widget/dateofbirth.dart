@@ -1,35 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart'; // For date formatting
+import 'package:intl/intl.dart';
 import 'package:untitled/ProfileScreen/Controller/profile_controller.dart';
+import 'package:untitled/ProfileScreen/Models/profilefield_model.dart'; // Import the model
 
-class Dateofbirth extends StatefulWidget {
-  const Dateofbirth({super.key});
-
+class DateOfBirth extends StatefulWidget {
+  const DateOfBirth({super.key});
   @override
-  DateofbirthState createState() => DateofbirthState();
+  DateOfBirthState createState() => DateOfBirthState();
 }
 
-class DateofbirthState extends State<Dateofbirth> {
+class DateOfBirthState extends State<DateOfBirth> {
   Future<void> _selectDate(BuildContext context) async {
-    // Access ProfileController instance
     final profileController = Get.find<ProfileController>();
-
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: profileController.selectedDate ?? DateTime.now(),
-      firstDate: DateTime(1900),
+      firstDate: DateTime(1950),
       lastDate: DateTime.now(),
     );
-
     if (picked != null && picked != profileController.selectedDate) {
-      // Update the controller and UI state
       profileController.selectedDate = picked;
-      profileController.changeBirth(DateFormat('yyyy-MM-dd').format(picked));
-      profileController.birthController.text =
-          DateFormat('yyyy-MM-dd').format(picked); // Sync with the text field
-
-      // Notify listeners of state change
+      final formattedDate = DateFormat('yyyy-MM-dd').format(picked);
+      profileController.changeBirth(formattedDate);
+      profileController.birthController.text = formattedDate;
+      final profileModel = ProfileFieldModel(
+        fullName: profileController.nameController.text,
+        country: profileController.selectedCountry,
+        dateOfBirth: formattedDate,
+        city: profileController.selectedCity,
+      );
+      profileController.saveProfile(profileModel);
       profileController.update();
     }
   }
@@ -71,7 +72,7 @@ class DateofbirthState extends State<Dateofbirth> {
               ),
               const SizedBox(height: 8),
               TextFormField(
-                readOnly: true, // Make the TextFormField non-editable
+                readOnly: true,
                 controller: TextEditingController(
                   text: controller.selectedDate != null
                       ? DateFormat('yyyy-MM-dd').format(controller.selectedDate!)

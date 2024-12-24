@@ -80,7 +80,7 @@ class CreateProfileScreenState extends State<CreateProfileScreen> {
                       const SizedBox(height: 20),
                       GenderSelector(controller: controller),
                       ///////////////////////////////////////////
-                      const Dateofbirth(),
+                      const DateOfBirth(),
                       const SizedBox(height: 20),
                       ///////////////////////////////////////////
                       SchoolTypeSelector(controller: controller),
