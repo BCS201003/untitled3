@@ -19,10 +19,6 @@ class MyCourseController extends GetxController {
   void addCourse(String courseName) {
     if (courses.length < 10) {
       courses.add(courseName);
-      // errorMessage remains unchanged since it's no longer reactive
-    } else {
-      // errorMessage would need to be updated without reactivity now
-      // errorMessage = "Maximum number of courses reached!";
-    }
+    } else {}
   }
 }

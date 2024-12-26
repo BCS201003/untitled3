@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled/HomeScreen/Controller/home_controller.dart';
-import 'package:untitled/HomeScreen/loading_screen.dart';
 import 'package:untitled/Mycources/Controller/mycource_controller.dart';
 import 'package:untitled/notification_controller.dart';
 import 'package:untitled/ProfileScreen/Controller/profile_controller.dart';
@@ -27,10 +26,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       //home: MyCoursesScreen(),
       //home: LoadingScreen(),
-      home: LoadingScreen(),
       //home: SubscriberInfoScreen(),
       //home: TeacherDashboard(),
-      //home: Learning(),
+      //home:Learning(),
       //home: QuizScreen(),
       //home: SubscriberInfoScreen(),
       //home: Testchild(),
