@@ -1,4 +1,4 @@
-// main.dart
+// get.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled/HomeScreen/Controller/home_controller.dart';
