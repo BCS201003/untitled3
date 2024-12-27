@@ -1,6 +1,5 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-//import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:untitled/Widgets/Padding_weight/otp_output.dart';
 import 'dart:async';
 
@@ -54,33 +53,37 @@ class OtpVerificationState extends State<OtpVerification> {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+    final padding = MediaQuery.of(context).padding;
+
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(26.0),
+        padding: EdgeInsets.all(screenWidth * 0.07), // Use 7% padding based on screen width
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const SizedBox(height: 15),
+            SizedBox(height: screenHeight * 0.02), // Use 2% of screen height for spacing
             Center(
               child: Image.asset(
                 'assets/logo2.png',
-                height: 250,
+                height: screenHeight * 0.25, // 25% of screen height for the image
               ),
             ),
-            const SizedBox(height: 10),
-            const Text(
+            SizedBox(height: screenHeight * 0.015), // Spacing between elements
+            Text(
               'Enter OTP',
               style: TextStyle(
                 fontFamily: 'Jost',
-                fontSize: 28,
+                fontSize: screenWidth * 0.08, // Font size relative to screen width
                 fontWeight: FontWeight.w600,
                 height: 40 / 28,
-                color: Color(0xFF2A4B6B),
+                color: const Color(0xFF2A4B6B),
               ),
               textAlign: TextAlign.left,
             ),
-            const SizedBox(height: 5),
+            SizedBox(height: screenHeight * 0.01), // Spacing between elements
             const Text.rich(
               TextSpan(
                 text: 'Enter OTP sent to ',
@@ -104,28 +107,28 @@ class OtpVerificationState extends State<OtpVerification> {
                 ],
               ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: screenHeight * 0.02), // Spacing between elements
             OtpInputFields(onOtpChanged: _checkOtpCompletion),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
+                Text(
                   'Resend OTP',
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: screenWidth * 0.035, // Font size relative to screen width
                     color: Colors.grey,
                   ),
                 ),
                 Text(
                   _timerText,
-                  style: const TextStyle(
-                    fontSize: 14,
+                  style: TextStyle(
+                    fontSize: screenWidth * 0.035, // Font size relative to screen width
                     color: Colors.grey,
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 40),
+            SizedBox(height: screenHeight * 0.05), // Spacing between elements
             ElevatedButton(
               onPressed: _isOtpComplete
                   ? () {
@@ -139,42 +142,42 @@ class OtpVerificationState extends State<OtpVerification> {
                   : null,
               style: ElevatedButton.styleFrom(
                 backgroundColor: _isOtpComplete ? const Color(0xFF2A4B6B) : Colors.grey,
-                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                padding: EdgeInsets.symmetric(vertical: screenHeight * 0.02), // 2% vertical padding
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
-              child: const Text(
+              child: Text(
                 'Verify',
                 style: TextStyle(
                   color: Colors.white,
+                  fontSize: screenWidth * 0.05, // Font size relative to screen width
                 ),
               ),
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: screenHeight * 0.01), // Spacing between elements
             Center(
               child: GestureDetector(
-                onTap: () {
-                },
+                onTap: () {},
                 child: Text.rich(
                   TextSpan(
                     text: 'Wrong Number? ',
-                    style: const TextStyle(
-                      fontSize: 14,
+                    style: TextStyle(
+                      fontSize: screenWidth * 0.035, // Font size relative to screen width
                       fontWeight: FontWeight.w400,
                       color: Colors.grey,
                     ),
                     children: [
                       TextSpan(
                         text: 'Change Number',
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontWeight: FontWeight.w600,
-                          color: Color(0xFF2A4B6B),
+                          color: const Color(0xFF2A4B6B),
                           decoration: TextDecoration.underline,
+                          fontSize: screenWidth * 0.035, // Font size relative to screen width
                         ),
                         recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                          },
+                          ..onTap = () {},
                       ),
                     ],
                   ),
@@ -187,4 +190,3 @@ class OtpVerificationState extends State<OtpVerification> {
     );
   }
 }
-

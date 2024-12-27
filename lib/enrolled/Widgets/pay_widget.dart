@@ -13,6 +13,9 @@ class PayWidgetState extends State<PayWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Column(
       children: [
         Row(
@@ -55,43 +58,48 @@ class PayWidgetState extends State<PayWidget> {
             ),
           ],
         ),
-        const Padding(
-          padding: EdgeInsets.only(left: 32.0, right: 32.0),
-          child: Divider(color: Color(0xFFDDDDDD)),
+        Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: screenWidth * 0.08, // Horizontal padding based on screen width
+          ),
+          child: const Divider(color: Color(0xFFDDDDDD)),
         ),
-        const SizedBox(height: 5),
-        const Row(
+        SizedBox(height: screenHeight * 0.02), // Adjust spacing relative to screen height
+        Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               'Total Charges:',
               style: TextStyle(
-                color: Color(0xFF2A4B6B),
+                color: const Color(0xFF2A4B6B),
                 fontFamily: 'Jost',
-                fontSize: 14,
+                fontSize: screenWidth * 0.04, // Font size based on screen width
                 fontWeight: FontWeight.w500,
-                height: 31.78 / 14, // Line height adjusted for font size
+                height: 31.78 / 14,
               ),
             ),
             Text(
               'PKR 1800.00',
               style: TextStyle(
-                color: Color(0xFF2A4B6B),
+                color: const Color(0xFF2A4B6B),
                 fontFamily: 'Jost',
-                fontSize: 14,
+                fontSize: screenWidth * 0.04, // Font size based on screen width
                 fontWeight: FontWeight.w500,
-                height: 31.78 / 14, // Line height adjusted for font size
+                height: 31.78 / 14,
               ),
             ),
           ],
         ),
-        const SizedBox(height: 10),
+        SizedBox(height: screenHeight * 0.03), // Adjust spacing relative to screen height
         Center(
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFF2A4B6B), // Background color
-              foregroundColor: Colors.white, // Text color
-              padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+              backgroundColor: const Color(0xFF2A4B6B),
+              foregroundColor: Colors.white,
+              padding: EdgeInsets.symmetric(
+                horizontal: screenWidth * 0.2, // Button width relative to screen width
+                vertical: screenHeight * 0.02, // Button height relative to screen height
+              ),
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10)),
               ),
@@ -104,10 +112,10 @@ class PayWidgetState extends State<PayWidget> {
                 ),
               );
             },
-            child: const Text(
+            child: Text(
               'Pay',
               style: TextStyle(
-                fontSize: 18,
+                fontSize: screenWidth * 0.05, // Font size based on screen width
                 fontWeight: FontWeight.bold,
               ),
             ),

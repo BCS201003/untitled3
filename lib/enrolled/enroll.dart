@@ -11,6 +11,10 @@ class EnrollScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Fetch the screen dimensions using MediaQuery
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: CustomAppBar(
         title: 'Payment Method',
@@ -21,36 +25,41 @@ class EnrollScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Column(
         children: [
+          // Container for the main content, with dynamic height based on the screen size
           Container(
-            height: 520,
-            padding: const EdgeInsets.all(8.0),
-            child:  const SingleChildScrollView(
+            height: screenHeight * 0.7, // Set height relative to screen height (70%)
+            padding: EdgeInsets.all(screenWidth * 0.02), // Padding relative to screen width
+            child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(height: 20),
+                  SizedBox(height: screenHeight * 0.02), // Spacing relative to screen height
 
                   // Billing Address
-                  BillingAddressContainer(),
-                  SizedBox(height: 20),
+                  const BillingAddressContainer(),
+                  SizedBox(height: screenHeight * 0.02), // Spacing between sections
 
                   // Payment Method
-                  PaymentMethodContainer(),
-                  SizedBox(height: 20),
+                  const PaymentMethodContainer(),
+                  SizedBox(height: screenHeight * 0.02), // Spacing between sections
 
                   // Order Review
-                  OrderReviewContainer(),
-                  SizedBox(height: 20),
+                  const OrderReviewContainer(),
+                  SizedBox(height: screenHeight * 0.02), // Spacing between sections
 
                   // Billing Summary
-                  BillingSummaryContainer(),
-                  SizedBox(height: 10),
+                  const BillingSummaryContainer(),
+                  SizedBox(height: screenHeight * 0.01), // Small spacing before PayWidget
                 ],
               ),
             ),
           ),
+
+          // Container for the PayWidget, with dynamic padding
           Container(
-            padding: const EdgeInsets.only(left: 4.0, right: 4.0),
+            padding: EdgeInsets.symmetric(
+              horizontal: screenWidth * 0.05, // Padding relative to screen width
+            ),
             child: const PayWidget(),
           ),
         ],

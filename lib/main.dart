@@ -6,6 +6,7 @@ import 'package:untitled/Mycources/Controller/mycource_controller.dart';
 import 'package:untitled/Wigets/get_put_delete_post.dart';
 import 'package:untitled/notification_controller.dart';
 import 'package:untitled/ProfileScreen/Controller/profile_controller.dart';
+import 'package:untitled/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
     return const GetMaterialApp(
       title: 'GetX Notifications Demo',
       debugShowCheckedModeBanner: false,
-      home: GPDPApiScreen(),
+      home: HomeScreen(),
+
     );
   }
 }
