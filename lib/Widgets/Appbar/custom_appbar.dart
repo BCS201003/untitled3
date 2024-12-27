@@ -25,10 +25,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
     return AppBar(
       leading: Padding(
-        padding: EdgeInsets.all(screenWidth * 0.02), // Adjust padding based on screen width
+        padding: EdgeInsets.all(screenWidth * 0.0065),
         child: Container(
-          width: screenWidth * 0.08,  // Adjust width based on screen width
-          height: screenWidth * 0.08, // Adjust height based on screen width
+          width: screenWidth * 0.05,
+          height: screenWidth * 0.05,
           decoration: BoxDecoration(
             color: const Color(0xFF2A4B6B),
             border: Border.all(color: Colors.white, width: 0.2),
@@ -49,7 +49,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         style: TextStyle(
           color: const Color(0xFF2A4B6B),
           fontFamily: 'Jost',
-          fontSize: screenWidth * 0.05, // Adjust font size based on screen width
+          fontSize: screenWidth * 0.05,
           fontWeight: FontWeight.w600,
           height: 23.12 / 16,
           letterSpacing: 1,
@@ -66,5 +66,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

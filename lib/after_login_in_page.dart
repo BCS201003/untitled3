@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/Widgets/Appbar/custom_appbar.dart';
 import 'package:untitled/Widgets/Padding_weight/pts_weight.dart';
 
 class LoginPage extends StatelessWidget {
@@ -7,9 +8,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login Page'),
-      ),
+      appBar: CustomAppBar(title: 'hello'),
       body: const PTSWidget(),
     );
   }

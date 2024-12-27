@@ -9,10 +9,10 @@ class Learning extends StatefulWidget {
   const Learning({super.key});
 
   @override
-  State<Learning> createState() => _LearningState();
+  State<Learning> createState() => LearningState();
 }
 
-class _LearningState extends State<Learning> {
+class LearningState extends State<Learning> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -29,7 +29,7 @@ class _LearningState extends State<Learning> {
       body: Center(
         child: Scrollbar(
           child: SingleChildScrollView(
-            padding: EdgeInsets.all(screenWidth * 0.04), // Add some padding based on screen size
+            padding: EdgeInsets.all(screenWidth * 0.04),
             child:const Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -42,13 +42,12 @@ class _LearningState extends State<Learning> {
         ),
       ),
       floatingActionButton: Padding(
-        padding: EdgeInsets.only(bottom: screenHeight * 0.1), // Adjust floating button position from bottom
+        padding: EdgeInsets.only(bottom: screenHeight * 0.1),
         child: FloatingActionButton(
           onPressed: () {
-            // Navigate to QuizScreen
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => QuizScreen()),
+              MaterialPageRoute(builder: (context) => const QuizScreen()),
             );
           },
           backgroundColor: Colors.blue,
