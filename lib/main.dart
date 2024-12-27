@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled/HomeScreen/Controller/home_controller.dart';
 import 'package:untitled/Mycources/Controller/mycource_controller.dart';
-import 'package:untitled/Wigets/post.dart';
+import 'package:untitled/Wigets/get_put_delete_post.dart';
 import 'package:untitled/notification_controller.dart';
 import 'package:untitled/ProfileScreen/Controller/profile_controller.dart';
 
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
     return const GetMaterialApp(
       title: 'GetX Notifications Demo',
       debugShowCheckedModeBanner: false,
-      home: PostApiScreen(),
+      home: GPDPApiScreen(),
     );
   }
 }
