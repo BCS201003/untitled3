@@ -16,6 +16,9 @@ class PayWidgetState extends State<PayWidget> {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
 
+    // You can adjust the border radius based on screenWidth or screenHeight
+    double borderRadius = screenWidth * 0.05; // or use screenHeight * 0.05
+
     return Column(
       children: [
         Row(
@@ -60,11 +63,11 @@ class PayWidgetState extends State<PayWidget> {
         ),
         Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: screenWidth * 0.08, // Horizontal padding based on screen width
+            horizontal: screenWidth * 0.08,
           ),
           child: const Divider(color: Color(0xFFDDDDDD)),
         ),
-        SizedBox(height: screenHeight * 0.02), // Adjust spacing relative to screen height
+        SizedBox(height: screenHeight * 0.02),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -73,7 +76,7 @@ class PayWidgetState extends State<PayWidget> {
               style: TextStyle(
                 color: const Color(0xFF2A4B6B),
                 fontFamily: 'Jost',
-                fontSize: screenWidth * 0.04, // Font size based on screen width
+                fontSize: screenWidth * 0.04,
                 fontWeight: FontWeight.w500,
                 height: 31.78 / 14,
               ),
@@ -83,25 +86,25 @@ class PayWidgetState extends State<PayWidget> {
               style: TextStyle(
                 color: const Color(0xFF2A4B6B),
                 fontFamily: 'Jost',
-                fontSize: screenWidth * 0.04, // Font size based on screen width
+                fontSize: screenWidth * 0.04,
                 fontWeight: FontWeight.w500,
                 height: 31.78 / 14,
               ),
             ),
           ],
         ),
-        SizedBox(height: screenHeight * 0.03), // Adjust spacing relative to screen height
+        SizedBox(height: screenHeight * 0.03),
         Center(
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color(0xFF2A4B6B),
               foregroundColor: Colors.white,
               padding: EdgeInsets.symmetric(
-                horizontal: screenWidth * 0.2, // Button width relative to screen width
-                vertical: screenHeight * 0.02, // Button height relative to screen height
+                horizontal: screenWidth * 0.2,
+                vertical: screenHeight * 0.02,
               ),
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
               ),
             ),
             onPressed: () {
@@ -115,7 +118,7 @@ class PayWidgetState extends State<PayWidget> {
             child: Text(
               'Pay',
               style: TextStyle(
-                fontSize: screenWidth * 0.05, // Font size based on screen width
+                fontSize: screenWidth * 0.05,
                 fontWeight: FontWeight.bold,
               ),
             ),

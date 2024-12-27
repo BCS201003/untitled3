@@ -55,7 +55,6 @@ class OtpVerificationState extends State<OtpVerification> {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
-    final padding = MediaQuery.of(context).padding;
 
     return Scaffold(
       body: Padding(

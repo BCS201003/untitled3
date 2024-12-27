@@ -5,8 +5,10 @@ class SelectClassContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Container(
-      width: 353,
+      width: screenWidth * 0.9, // Adjust width to 90% of screen width
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(15),
@@ -14,25 +16,41 @@ class SelectClassContainer extends StatelessWidget {
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(15),
-        child: const ExpansionTile(
-          tilePadding: EdgeInsets.symmetric(horizontal: 16.0),
+        child: ExpansionTile(
+          tilePadding: EdgeInsets.symmetric(horizontal: screenWidth * 0.04), // Adjust padding based on screen width
           title: Text(
             'Select Class',
             style: TextStyle(
-              color: Color(0xFF042763),
+              color: const Color(0xFF042763),
               fontWeight: FontWeight.bold,
+              fontSize: screenWidth * 0.05, // Adjust font size based on screen width
             ),
           ),
-          iconColor: Color(0xFF343A40),
+          iconColor: const Color(0xFF343A40),
           children: [
             ListTile(
-              title: Text('Class 6th'),
+              title: Text(
+                'Class 6th',
+                style: TextStyle(
+                  fontSize: screenWidth * 0.045, // Adjust font size based on screen width
+                ),
+              ),
             ),
             ListTile(
-              title: Text('Class 7th'),
+              title: Text(
+                'Class 7th',
+                style: TextStyle(
+                  fontSize: screenWidth * 0.045, // Adjust font size based on screen width
+                ),
+              ),
             ),
             ListTile(
-              title: Text('Class 9th'),
+              title: Text(
+                'Class 9th',
+                style: TextStyle(
+                  fontSize: screenWidth * 0.045, // Adjust font size based on screen width
+                ),
+              ),
             ),
           ],
         ),

@@ -5,8 +5,10 @@ class CurriculumSummaryContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Container(
-      width: 353,
+      width: screenWidth * 0.9, // 90% of screen width for responsiveness
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(15),
@@ -15,22 +17,24 @@ class CurriculumSummaryContainer extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(15),
         child: ExpansionTile(
-          tilePadding: const EdgeInsets.symmetric(horizontal: 16.0),
-          title: const Text(
+          tilePadding: EdgeInsets.symmetric(horizontal: screenWidth * 0.04), // Horizontal padding based on screen width
+          title: Text(
             'Curriculum Summary',
             style: TextStyle(
-              color: Color(0xFF042763),
+              color: const Color(0xFF042763),
               fontWeight: FontWeight.bold,
+              fontSize: screenWidth * 0.05, // Font size based on screen width
             ),
           ),
           iconColor: const Color(0xFF343A40),
           children: [
             ListTile(
-              title: const Text(
+              title: Text(
                 'Class Progress',
                 style: TextStyle(
-                  color: Color(0xFF2A4B6B),
+                  color: const Color(0xFF2A4B6B),
                   fontWeight: FontWeight.bold,
+                  fontSize: screenWidth * 0.045, // Font size based on screen width
                 ),
               ),
               subtitle: const Text('50%'),
@@ -42,7 +46,7 @@ class CurriculumSummaryContainer extends StatelessWidget {
                     backgroundColor: Colors.grey.withOpacity(0.3),
                     valueColor: const AlwaysStoppedAnimation<Color>(Colors.yellow),
                   ),
-                  Image.asset('assets/MaskGroupFile.png', width: 20, height: 20),
+                  Image.asset('assets/MaskGroupFile.png', width: screenWidth * 0.08, height: screenWidth * 0.08), // Image size based on screen width
                 ],
               ),
             ),

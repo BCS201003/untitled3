@@ -11,6 +11,9 @@ class TeacherDashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: CustomAppBar(
@@ -20,66 +23,54 @@ class TeacherDashboard extends StatelessWidget {
         },
       ),
       floatingActionButton: SizedBox(
-        width: 50,
-        child: SizedBox(
-          height: 60,
-          child: FittedBox(
-            child: FloatingActionButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Learning()),
-                );
-              },
-              child: const Icon(Icons.login), // You might want to add an icon or text here.
-            ),
+        width: screenWidth * 0.12,
+        height: screenHeight * 0.07,
+        child: FittedBox(
+          child: FloatingActionButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Learning()),
+              );
+            },
+            child: const Icon(Icons.login),
           ),
         ),
       ),
-      body: const SingleChildScrollView(
-        padding: EdgeInsets.all(8.0),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.all(screenWidth * 0.02),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 20),
+            SizedBox(height: screenHeight * 0.02),
 
-            // Teacher Info
             Text(
               'Teacher Info',
               style: TextStyle(
                 fontFamily: 'Jost',
-                fontSize: 24,
+                fontSize: screenWidth * 0.06,
                 fontWeight: FontWeight.bold,
-                height: 24.48 / 24,
-                textBaseline: TextBaseline.alphabetic,
-                decorationStyle: TextDecorationStyle.solid,
-                decorationColor: Color(0xFF042763),
-                color: Color(0xFF042763),
+                color: const Color(0xFF042763),
               ),
             ),
 
-            SizedBox(height: 20),
+            SizedBox(height: screenHeight * 0.02),
 
-            // Centered content
             Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // Select Class
-                  SelectClassContainer(),
-                  SizedBox(height: 20),
+                  const SelectClassContainer(),
+                  SizedBox(height: screenHeight * 0.02),
 
-                  // Student List
-                  StudentListContainer(),
-                  SizedBox(height: 20),
+                  const StudentListContainer(),
+                  SizedBox(height: screenHeight * 0.02),
 
-                  // Teacher List
-                  TeacherListContainer(),
-                  SizedBox(height: 20),
+                  const TeacherListContainer(),
+                  SizedBox(height: screenHeight * 0.02),
 
-                  // Curriculum Summary
-                  CurriculumSummaryContainer(),
-                  SizedBox(height: 20),
+                  const CurriculumSummaryContainer(),
+                  SizedBox(height: screenHeight * 0.02),
                 ],
               ),
             ),
