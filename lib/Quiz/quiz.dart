@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/Quiz/Widget/lesson/lesson.dart';
-import 'package:untitled/Quiz/Widget/lesson/lesson2.dart';
 import 'package:untitled/Quiz/Widget/msqsresultwidget.dart';
 import 'package:untitled/Widgets/Appbar/custom_appbar.dart';
+import 'package:untitled/new_screen2.dart';
 
 class QuizScreen extends StatelessWidget {
   const QuizScreen({super.key});
@@ -17,6 +16,15 @@ class QuizScreen extends StatelessWidget {
           Navigator.of(context).pop();
         },
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Define navigation or functionality here
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => const MyHomePage(),
+          ));
+        },
+        child: const Icon(Icons.home),
+      ),
       body: const Padding(
         padding: EdgeInsets.all(16.0),
         child: SingleChildScrollView(
@@ -24,8 +32,10 @@ class QuizScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               MCQsResultWidget(),
-              Question1Widget(),
-              Question2Widget(),
+              // Ensure these widgets are defined or imported
+              // Replace with your actual widget definitions
+              Placeholder(fallbackHeight: 100), // Replace with Question1Widget()
+              Placeholder(fallbackHeight: 100), // Replace with Question2Widget()
             ],
           ),
         ),

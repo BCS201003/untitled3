@@ -27,8 +27,8 @@ class MyApp extends StatelessWidget {
 
       title: 'GetX Notifications Demo',
       debugShowCheckedModeBanner: false,
-      // home: HomeScreen(),
-      home: LoginPage(),
+       home: HomeScreen(),
+      // home: LoginPage(),
     );
   }
 }
