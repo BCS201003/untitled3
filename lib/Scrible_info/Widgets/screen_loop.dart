@@ -11,21 +11,21 @@ class AddStudentLoop extends StatefulWidget {
 }
 
 class _AddStudentLoopState extends State<AddStudentLoop> {
-  final ProfileController controller = ProfileController(); // Initialize controller
+  final ProfileController controller = ProfileController();
 
   @override
   void initState() {
     super.initState();
-    controller.updateSaveButtonState(); // Make sure this is called initially
+    controller.updateSaveButtonState();
   }
 
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
-    final double verticalPadding = mediaQuery.size.height * 0.02; // 2% of screen height
-    final double horizontalPadding = mediaQuery.size.width * 0.04; // 4% of screen width
+    final double verticalPadding = mediaQuery.size.height * 0.02;
+    final double horizontalPadding = mediaQuery.size.width * 0.04;
 
-    return SingleChildScrollView( // Added SingleChildScrollView to prevent overflow issues
+    return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -43,7 +43,7 @@ class _AddStudentLoopState extends State<AddStudentLoop> {
               ),
             )
                 : ListView.separated(
-              shrinkWrap: true, // Ensures ListView does not take up more space than necessary
+              shrinkWrap: true,
               itemCount: controller.listSubscriberData.length,
               separatorBuilder: (context, index) => SizedBox(height: verticalPadding),
               itemBuilder: (context, index) {
@@ -56,7 +56,6 @@ class _AddStudentLoopState extends State<AddStudentLoop> {
             ),
           ),
 
-          // Error Message Handling - Manually managed via setState()
           if (controller.errorMessage.isNotEmpty)
             Padding(
               padding: EdgeInsets.all(horizontalPadding),
@@ -69,8 +68,6 @@ class _AddStudentLoopState extends State<AddStudentLoop> {
                 ),
               ),
             ),
-
-          // Add Student Button
           if (controller.listSubscriberData.length < 5)
             Padding(
               padding: EdgeInsets.symmetric(
@@ -79,11 +76,11 @@ class _AddStudentLoopState extends State<AddStudentLoop> {
               ),
               child: SizedBox(
                 width: double.infinity,
-                height: mediaQuery.size.height * 0.06, // 6% of screen height for button height
+                height: mediaQuery.size.height * 0.06,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF2A4B6B), // Button color
-                    foregroundColor: Colors.white, // Text color
+                    backgroundColor: const Color(0xFF2A4B6B),
+                    foregroundColor: Colors.white,
                     padding: EdgeInsets.symmetric(vertical: verticalPadding * 0.6),
                     textStyle: const TextStyle(
                       fontFamily: 'Jost',
@@ -109,8 +106,6 @@ class _AddStudentLoopState extends State<AddStudentLoop> {
                 ),
               ),
             ),
-
-          // No Add Button Placeholder
           if (controller.listSubscriberData.length >= 5)
             Padding(
               padding: EdgeInsets.all(horizontalPadding),

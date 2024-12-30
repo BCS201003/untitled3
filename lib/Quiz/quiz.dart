@@ -18,7 +18,6 @@ class QuizScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Define navigation or functionality here
           Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => const MyHomePage(),
           ));

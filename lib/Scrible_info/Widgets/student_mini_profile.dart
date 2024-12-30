@@ -30,13 +30,12 @@ class StudentMiniProfile extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            // Icon size adjusted based on screen width
             Icon(
               Icons.account_circle,
               size: iconSize,
               color: const Color(0xFF2A4B6B),
             ),
-            SizedBox(width: screenWidth * 0.03), // Adjusted spacing
+            SizedBox(width: screenWidth * 0.03),
             Expanded(
               child: Padding(
                 padding: EdgeInsets.all(padding),

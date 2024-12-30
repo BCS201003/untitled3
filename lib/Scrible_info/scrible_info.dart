@@ -15,7 +15,6 @@ class SubscriberInfoScreen extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Stack(
             children: [
-              // Positioned Logout button
               Positioned(
                 top: 25,
                 left: 0,
@@ -27,26 +26,24 @@ class SubscriberInfoScreen extends StatelessWidget {
                   },
                 ),
               ),
-              // Positioned logo image at the top center
               Positioned(
                 top: -5,
                 left: MediaQuery.of(context).size.width / 2 - 100,
                 child: Image.asset(
                   'assets/logo2.png',
-                  height: MediaQuery.of(context).size.height * 0.25, // Use relative height
+                  height: MediaQuery.of(context).size.height * 0.25,
                 ),
               ),
-              // Main content (Subscriber Info)
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.25), // Adjust based on screen height
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.25),
                   Text(
                     "  Subscriber Info",
                     style: TextStyle(
                       color: const Color(0xFF2A4B6B),
                       fontFamily: 'Jost',
-                      fontSize: MediaQuery.of(context).size.width * 0.08, // Font size based on screen width
+                      fontSize: MediaQuery.of(context).size.width * 0.08,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -57,7 +54,7 @@ class SubscriberInfoScreen extends StatelessWidget {
                       style: TextStyle(
                         color: const Color(0xFF042763),
                         fontFamily: 'Jost',
-                        fontSize: MediaQuery.of(context).size.width * 0.06, // Font size based on screen width
+                        fontSize: MediaQuery.of(context).size.width * 0.06,
                         fontWeight: FontWeight.w500,
                         height: 1.5,
                       ),
@@ -72,7 +69,6 @@ class SubscriberInfoScreen extends StatelessWidget {
           ),
         ),
       ),
-      // Floating action button to navigate to Dashboard
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
