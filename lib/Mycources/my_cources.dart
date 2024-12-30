@@ -17,6 +17,10 @@ class _MyCoursesScreenState extends State<MyCoursesScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Get screen dimensions
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: CustomAppBar(
         title: 'MY COURSES',
@@ -25,19 +29,20 @@ class _MyCoursesScreenState extends State<MyCoursesScreen> {
         },
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(screenWidth * 0.04),  // Adjust padding
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextField(
               controller: _courseController,
               decoration: InputDecoration(
                 labelText: 'Add a New Course',
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8.0),
+                  borderRadius: BorderRadius.circular(screenWidth * 0.02), // Responsive border radius
                 ),
               ),
             ),
-            const SizedBox(height: 10),
+            SizedBox(height: screenHeight * 0.02),  // Adjust spacing based on screen height
             ElevatedButton(
               onPressed: () {
                 final courseName = _courseController.text.trim();
@@ -50,21 +55,33 @@ class _MyCoursesScreenState extends State<MyCoursesScreen> {
                   );
                 }
               },
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(
+                  vertical: screenHeight * 0.015,  // Adjust vertical padding based on height
+                  horizontal: screenWidth * 0.2,    // Adjust horizontal padding based on width
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(screenWidth * 0.02), // Responsive border radius
+                ),
+              ),
               child: const Text('Add Course'),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: screenHeight * 0.03),  // Adjust spacing between elements
             const Expanded(
               child: SingleChildScrollView(
                 child: CourseListWidget(),
               ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: screenHeight * 0.03),  // Adjust spacing
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF2A4B6B),
-                padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 24.0),
+                padding: EdgeInsets.symmetric(
+                  vertical: screenHeight * 0.02,  // Adjust vertical padding
+                  horizontal: screenWidth * 0.2,   // Adjust horizontal padding
+                ),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0),
+                  borderRadius: BorderRadius.circular(screenWidth * 0.02), // Responsive border radius
                 ),
               ),
               onPressed: () {

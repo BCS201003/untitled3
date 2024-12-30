@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/signin/login_screen.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
   @override
@@ -94,8 +95,8 @@ class HomeScreen extends StatelessWidget {
                       textAlign: TextAlign.left,
                     ),
                   ),
-                  SizedBox(height: screenHeight * 0.03),
-                  const Spacer(),
+                  SizedBox(height: screenHeight * 0.15),
+                  // const Spacer(),
                 ],
               ),
             ),

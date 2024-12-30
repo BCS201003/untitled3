@@ -11,6 +11,8 @@ class EnrollScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: CustomAppBar(
         title: 'Payment Method',
@@ -22,35 +24,35 @@ class EnrollScreen extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            height: 520,
-            padding: const EdgeInsets.all(8.0),
-            child:  const SingleChildScrollView(
+            height: screenHeight * 0.6,
+            padding: EdgeInsets.all(screenWidth * 0.02),
+            child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(height: 20),
-
-                  // Billing Address
-                  BillingAddressContainer(),
-                  SizedBox(height: 20),
-
-                  // Payment Method
-                  PaymentMethodContainer(),
-                  SizedBox(height: 20),
+                  SizedBox(height: screenHeight * 0.02),
+                  // Billing
+                  const BillingAddressContainer(),
+                  SizedBox(height: screenHeight * 0.02),
+                  // payments
+                  const PaymentMethodContainer(),
+                  SizedBox(height: screenHeight * 0.02),
 
                   // Order Review
-                  OrderReviewContainer(),
-                  SizedBox(height: 20),
+                  const OrderReviewContainer(),
+                  SizedBox(height: screenHeight * 0.02),
 
                   // Billing Summary
-                  BillingSummaryContainer(),
-                  SizedBox(height: 10),
+                  const BillingSummaryContainer(),
+                  SizedBox(height: screenHeight * 0.01),
                 ],
               ),
             ),
           ),
           Container(
-            padding: const EdgeInsets.only(left: 4.0, right: 4.0),
+            padding: EdgeInsets.symmetric(
+              horizontal: screenWidth * 0.05,
+            ),
             child: const PayWidget(),
           ),
         ],

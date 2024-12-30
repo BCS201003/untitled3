@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 const TextStyle appBarTitleStyle = TextStyle(
   color: Color(0xFF2A4B6B),
   fontFamily: 'Jost',
-  fontSize: 20,
   fontWeight: FontWeight.w600,
   height: 23.12 / 16,
   letterSpacing: 1,
@@ -12,7 +11,7 @@ const TextStyle appBarTitleStyle = TextStyle(
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final VoidCallback? onBackPressed;
-  
+
   const CustomAppBar({
     super.key,
     required this.title,
@@ -21,12 +20,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return AppBar(
       leading: Padding(
-        padding: const EdgeInsets.all(7.0),
+        padding: EdgeInsets.all(screenWidth * 0.0065),
         child: Container(
-           width: 32, // Set container width
-           height: 32, // Set container height
+          width: screenWidth * 0.05,
+          height: screenWidth * 0.05,
           decoration: BoxDecoration(
             color: const Color(0xFF2A4B6B),
             border: Border.all(color: Colors.white, width: 0.2),
@@ -36,7 +38,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             icon: const Icon(
               Icons.arrow_back_ios_new,
               color: Colors.white,
-              size: 16, // Icon size
             ),
             tooltip: 'Back',
             onPressed: onBackPressed ?? () => Navigator.of(context).pop(),
@@ -45,7 +46,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       title: Text(
         title,
-        style: appBarTitleStyle,
+        style: TextStyle(
+          color: const Color(0xFF2A4B6B),
+          fontFamily: 'Jost',
+          fontSize: screenWidth * 0.05,
+          fontWeight: FontWeight.w600,
+          height: 23.12 / 16,
+          letterSpacing: 1,
+        ),
       ),
       centerTitle: true,
       backgroundColor: Colors.white,

@@ -35,8 +35,11 @@ class TeacherListContainerState extends State<TeacherListContainer> {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Container(
-      width: 353,
+      width: screenWidth * 0.9, // Adjust width to 90% of screen width
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(15),
@@ -45,18 +48,19 @@ class TeacherListContainerState extends State<TeacherListContainer> {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(15),
         child: ExpansionTile(
-          tilePadding: const EdgeInsets.symmetric(horizontal: 16.0),
-          title: const Text(
+          tilePadding: EdgeInsets.symmetric(horizontal: screenWidth * 0.04), // Adjust horizontal padding
+          title: Text(
             'Teacher List',
             style: TextStyle(
-              color: Color(0xFF042763),
+              color: const Color(0xFF042763),
               fontWeight: FontWeight.bold,
+              fontSize: screenWidth * 0.05, // Adjust font size based on screen width
             ),
           ),
           iconColor: const Color(0xFF343A40),
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(screenWidth * 0.04), // Adjust padding based on screen width
               child: TextField(
                 onChanged: _updateSearchQuery,
                 decoration: InputDecoration(
@@ -78,6 +82,8 @@ class TeacherListContainerState extends State<TeacherListContainer> {
                 teacher['progress'],
                 teacher['color'],
                 teacher['percentage'],
+                screenWidth,
+                screenHeight,
               );
             }),
           ],
@@ -86,12 +92,10 @@ class TeacherListContainerState extends State<TeacherListContainer> {
     );
   }
 
-  Widget _buildTeacherTile(String name, String imagePath, double progress, Color color, String percentage) {
+  Widget _buildTeacherTile(String name, String imagePath, double progress, Color color, String percentage, double screenWidth, double screenHeight) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 8.0),
-      padding: const EdgeInsets.all(8.0),
-      width: 323,
-      height: 68,  // Adjust height to fit content
+      margin: EdgeInsets.symmetric(vertical: screenHeight * 0.01, horizontal: screenWidth * 0.02), // Dynamic margin
+      padding: EdgeInsets.all(screenWidth * 0.03), // Dynamic padding
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         border: Border.all(color: Colors.grey.withOpacity(0.4)),
@@ -100,36 +104,37 @@ class TeacherListContainerState extends State<TeacherListContainer> {
         children: [
           CircleAvatar(
             backgroundImage: AssetImage(imagePath),
+            radius: screenWidth * 0.08, // Adjust avatar size based on screen width
           ),
-          const SizedBox(width: 10),
+          SizedBox(width: screenWidth * 0.03), // Adjust spacing
           Expanded(
             child: Text(
               name,
-              style: const TextStyle(
+              style: TextStyle(
                 fontFamily: 'Jost',
-                fontSize: 12,
+                fontSize: screenWidth * 0.04, // Adjust font size based on screen width
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF042763),
+                color: const Color(0xFF042763),
               ),
             ),
           ),
-          const SizedBox(width: 10),
+          SizedBox(width: screenWidth * 0.03), // Adjust spacing
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
                 percentage,
-                style: const TextStyle(
-                  color: Color(0xFF042763),
+                style: TextStyle(
+                  color: const Color(0xFF042763),
                   fontWeight: FontWeight.bold,
-                  fontSize: 12,
+                  fontSize: screenWidth * 0.04, // Adjust font size based on screen width
                 ),
               ),
-              const SizedBox(height: 4),
+              SizedBox(height: screenHeight * 0.01), // Adjust spacing
               SizedBox(
-                width: 50,
-                height: 4,
+                width: screenWidth * 0.3, // Adjust progress bar width
+                height: screenHeight * 0.01, // Adjust progress bar height
                 child: LinearProgressIndicator(
                   value: progress,
                   backgroundColor: Colors.grey.withOpacity(0.3),
@@ -138,17 +143,16 @@ class TeacherListContainerState extends State<TeacherListContainer> {
               ),
             ],
           ),
-          const SizedBox(width: 10),
+          SizedBox(width: screenWidth * 0.03),
           TextButton(
             onPressed: () {
-              // Action when "Log In as Teacher" is pressed
             },
-            child: const Text(
+            child: Text(
               'Log In as Teacher',
               style: TextStyle(
                 fontFamily: 'Jost',
-                fontSize: 12,
-                color: Color(0xFF1F7BF4),
+                fontSize: screenWidth * 0.04,
+                color: const Color(0xFF1F7BF4),
                 fontWeight: FontWeight.bold,
               ),
             ),

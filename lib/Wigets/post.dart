@@ -26,15 +26,16 @@ class PostApiScreenState extends State<PostApiScreen> {
     });
 
     Uri uri = Uri.parse('https://jsonplaceholder.typicode.com/posts');
+    // Use userId as a string
     Map<String, dynamic> body = {
       'title': 'First Post',
       'body': 'This is my first Post',
-      'userId': '1',
+      'userId': '1',  // userId is a string '1'
     };
 
     final response = await http.post(
       uri,
-      body: json.encode(body),
+      body: json.encode(body), // Correct encoding of the body
       headers: {'Content-Type': 'application/json'},
     );
 

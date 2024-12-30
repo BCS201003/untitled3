@@ -14,6 +14,9 @@ class MyCourseDashboard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: CustomAppBar(
         title: 'MY COURSES',
@@ -22,14 +25,14 @@ class MyCourseDashboard extends StatelessWidget {
         },
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(screenWidth * 0.04),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               ExpandableContainer(
-                controller: controller, // Pass controller here
-                media: 'Media Mind',   // Pass media title here
+                controller: controller,
+                media: 'Media Mind',
                 icon: Icons.expand_more,
                 expandedContent: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -39,10 +42,10 @@ class MyCourseDashboard extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: screenHeight * 0.02),
               ExpandableContainer(
-                controller: controller, // Pass controller here
-                media: 'AI Media',    // Pass media title here
+                controller: controller,
+                media: 'AI Media',
                 icon: Icons.expand_more,
                 expandedContent: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -52,18 +55,19 @@ class MyCourseDashboard extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: screenHeight * 0.02),
               _buildButton(
                 context,
                 label: 'Refresh',
                 onPressed: () {
-                  // Reload current page without recursion
                   Navigator.of(context).pushReplacement(
                     MaterialPageRoute(builder: (context) => MyCourseDashboard()),
                   );
                 },
+                screenWidth: screenWidth,
+                screenHeight: screenHeight,
               ),
-              const SizedBox(height: 10),
+              SizedBox(height: screenHeight * 0.02),
               _buildButton(
                 context,
                 label: 'Next',
@@ -72,6 +76,8 @@ class MyCourseDashboard extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => const Dashboard()),
                   );
                 },
+                screenWidth: screenWidth,
+                screenHeight: screenHeight,
               ),
             ],
           ),
@@ -80,16 +86,29 @@ class MyCourseDashboard extends StatelessWidget {
     );
   }
 
-  Widget _buildButton(BuildContext context, {required String label, required VoidCallback onPressed}) {
+  Widget _buildButton(
+      BuildContext context, {
+        required String label,
+        required VoidCallback onPressed,
+        required double screenWidth,
+        required double screenHeight,
+      }) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color(0xFF2A4B6B),
+        padding: EdgeInsets.symmetric(
+          vertical: screenHeight * 0.02,
+          horizontal: screenWidth * 0.3,
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
+        ),
       ),
       onPressed: onPressed,
       child: Text(
         label,
-        style: const TextStyle(
-          fontSize: 16,
+        style: TextStyle(
+          fontSize: screenWidth * 0.04,
           fontWeight: FontWeight.w600,
           color: Colors.white,
         ),
